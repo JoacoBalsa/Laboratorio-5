@@ -14,11 +14,11 @@ class DtUsuario{
         Fecha fecReg;
         string biografia;
         string imgUrl;
-        Registro registrado;        
-        Registro ultVez;            
+        Reloj registrado;        
+        Reloj ultVez;            
     public:
         DtUsuario();
-        DtUsuario (int tel, string nom, Fecha fec, string bio, string img, Registro ultvez);
+        DtUsuario (int tel, string nom, Fecha fec, string bio, string img, Reloj ultvez);
         int getTel();
         void setTel(int tel);
         string getNombre();
@@ -29,10 +29,10 @@ class DtUsuario{
         void setBio(string bio);
         string getImg();
         void setImg(string url);
-        Registro getReg();
-        void setReg(Registro reg);
-        Registro getUltVez();
-        void setUltVez(Registro fecha);
+        Reloj getReg();
+        void setReg(Reloj reg);
+        Reloj getUltVez();
+        void setUltVez(Reloj fecha);
         ~DtUsuario();
 };
 
