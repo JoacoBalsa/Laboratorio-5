@@ -4,7 +4,7 @@
 #include <iostream>
 #include <string.h>
 #include "DtFecha.h"
-#include "DtRegistro.h"
+#include "DtReloj.h"
 using namespace std;
 
 class DtUsuario{
