@@ -14,5 +14,4 @@ void DtMenVid::setDuracion(float dur){
     this->dur = dur;
 };
 
-
 DtMenVid::~DtMenVid(){};

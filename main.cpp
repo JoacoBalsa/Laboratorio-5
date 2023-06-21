@@ -1,26 +1,19 @@
 #include "main.h"
 
-//  main.cpp
 
 int main(){
-    do{
-        menu();
-    }while(true);
+   
 }
 
 void menu(){
     int opc;
+    //interfaz_abrirApp();
     cout << "   MENU" << endl;
     cout << "1. Abrir App" << endl;
-    cout << "2. Cerrar App" << endl;                                    // Opcional
-    cout << "3. Agregar contactos" << endl;                             // Opcional
-    cout << "4. Alta grupo " << endl;                                   // Opcional
-    cout << "5. Enviar mensajes" << endl;
-    cout << "6. Ver mensajes" << endl;
-    cout << "7. Agregar participantes a un grupo" << endl;              // Opcional
-    cout << "8. Archivar conversaciones" << endl;
-    cout << "9. Modificar usuario" << endl;                             // Opcional
-    cout << "10. Eliminar mensaje" << endl;
+    cout << "2. Salir"<< endl;
+
+
+
     cin >> opc;
     switch (opc){
         case 1:
@@ -46,3 +39,19 @@ void menu(){
         default: break;
     }
 }
+
+/*
+AbrirApp - telefono • Agregar contactos                 (opcional)
+                    • Alta grupo                        (opcional)
+                    • Enviar mensajes
+                    • Ver mensajes
+                    • Agregar participantes a un grupo  (opcional)
+                    • Archivar conversaciones
+                    • Modificar usuario                 (opcional)
+                    • Eliminar mensajes
+                    • CambiarHora
+                    • ConsultarFecha
+                    • CerrarApp                         (opcional)
+Salir()
+
+*/
