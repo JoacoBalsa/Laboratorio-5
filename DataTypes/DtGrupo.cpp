@@ -9,7 +9,7 @@ DtGrupo::DtGrupo(int id, bool act, string nom, string url, Reloj fecha):DtConver
 };
 
 string DtGrupo::getNombre(){
-    return this->nombre;<
+    return this->nombre;
 };
 
 void DtGrupo::setNombre(string nom){

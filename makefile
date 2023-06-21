@@ -1,15 +1,15 @@
-main:	DtUsuario.o DtFecha.o DtHora.o DtRegistro.o DtMensaje.o main.o
-			g++ DtUsuario.o DtFecha.o DtHora.o DtRegistro.o DtMensaje.o main.o -o sistema
+main:	DtUsuario.o DtFecha.o DtHora.o DtReloj.o DtMensaje.o main.o
+			g++ DtUsuario.o DtFecha.o DtHora.o DtReloj.o DtMensaje.o main.o -o sistema
 
-DtUsuario.o: DtUsuario.cpp
+DtUsuario.o: DataTypes/DtUsuario.cpp
 
-DtFecha.o: DtFecha.cpp
+DtFecha.o: DataTypes/DtFecha.cpp
 
-DtHora.o: DtHora.cpp
+DtHora.o: DataTypes/DtHora.cpp
 
-DtRegistro.o: DtRegistro.cpp
+DtReloj.o: DataTypes/DtReloj.cpp
 
-DtMensaje.o: DtMensaje.cpp
+DtMensaje.o: DataTypes/DtMensaje.cpp
 
 main.o: main.cpp
 
