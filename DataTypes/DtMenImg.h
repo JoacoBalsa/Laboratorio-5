@@ -5,7 +5,7 @@
 #include <string.h>
 #include "DtReloj.h"
 #include "DtMensaje.h"
-#include "Formato.h"
+#include "../Formato.h"
 using namespace std;
 
 class DtMenImg : public DtMensaje {
