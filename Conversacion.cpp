@@ -27,9 +27,22 @@ DtMensaje Conversacion::getMensaje(int id){
 };
 void Conversacion::setMensaje(int id, DtMensaje men){
     if(this->mensajes.find(id) == this->mensajes.end())
-        this->mensajes.insert({id, men});
+        this->mensajes[id] = men;
     else
         throw invalid_argument("Ya se ha mandado ese mensaje en esta conversacion.\n");
+};
+
+DtUsuario Conversacion::getIntegrante(int tel){
+    if(this->integrantes.find(tel) != this->integrantes.end())
+        return this->integrantes[tel];
+    else
+        throw invalid_argument("Ese usuario no es integrante de esta conversacion.\n");
+};
+void Conversacion::setIntegrante(int tel, DtUsuario integrante){
+    if(this->integrantes.find(tel) != this->integrantes.end())
+        throw invalid_argument("Ese usuario ya forma parte de esta conversacion.\n");
+    else
+        this->integrantes[tel] = integrante;
 };
 
 Conversacion::~Conversacion(){};

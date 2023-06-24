@@ -75,10 +75,10 @@ DtUsuario Usuario::getContacto(int tel){
        throw invalid_argument("No existe ningun contacto con ese telefono agendado.\n");
 };
 void Usuario::setContacto(int tel, DtUsuario cont){
-    if(this->contactos.find(tel) == this->contactos.end())
-        this->contactos.insert({tel, cont});
+    if(this->contactos.find(tel) != this->contactos.end())
+        throw invalid_argument("Contacto ya agendado.\n");
     else   
-       throw invalid_argument("Contacto ya agendado.\n");
+       this->contactos[tel] = cont;
 };
 
 DtMensaje Usuario::getMenEnv(int id){
@@ -89,10 +89,10 @@ DtMensaje Usuario::getMenEnv(int id){
 };
 
 void Usuario::setMenEnv(int id, DtMensaje men){
-    if(this->menEnv.find(id) == this->menEnv.end())
-        this->menEnv.insert({id, men});
-    else
+    if(this->menEnv.find(id) != this->menEnv.end())
         throw invalid_argument("Ya se ha mandado ese mensaje.\n");
+    else
+        this->menEnv[id] = men;
 };
 
 DtMensaje Usuario::getMenRec(int id){
@@ -103,10 +103,10 @@ DtMensaje Usuario::getMenRec(int id){
 };
 
 void Usuario::setMenRec(int id, DtMensaje men){
-    if(this->menRec.find(id) == this->menRec.end())
-        this->menRec.insert({id, men});
-    else
+    if(this->menRec.find(id) != this->menRec.end())
         throw invalid_argument("Ya se ha recibido ese mensaje.\n");
+    else
+        this->menRec[id] = men;
 };
 
 DtConversacion Usuario::getChat(int id){
@@ -117,10 +117,10 @@ DtConversacion Usuario::getChat(int id){
 };
 
 void Usuario::setChat(int id, DtConversacion conve){
-    if(this->chats.find(id) == this->chats.end())
-        this->chats.insert({id, conve});
+    if(this->chats.find(id) != this->chats.end())
+        throw invalid_argument("Este usuario ya forma parte de esa conversacion.\n"); 
     else
-        throw invalid_argument("Este usuario ya forma parte de esa conversacion.\n");
+        this->chats[id] = conve;
 };
 
 Usuario::~Usuario(){};

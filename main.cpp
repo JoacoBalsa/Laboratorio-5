@@ -1,11 +1,9 @@
 #include "main.h"
 
 
-int main(){
-   
-}
+int main(){}
 
-void menu(){
+/*void menu(){
     int opc;
     //interfaz_abrirApp();
     cout << "   MENU" << endl;
@@ -38,7 +36,7 @@ void menu(){
         break;
         default: break;
     }
-}
+}*/
 
 /*
 AbrirApp - telefono • Agregar contactos                 (opcional)

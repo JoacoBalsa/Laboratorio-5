@@ -6,7 +6,7 @@ DtMenSimple::DtMenSimple(int id, Reloj fec, string text):DtMensaje(id,fec){
     this->texto = text;
 };
 
-void DtMenSimple :: setTexto(string texto){
+void DtMenSimple::setTexto(string texto){
     this->texto = texto;
 };
 

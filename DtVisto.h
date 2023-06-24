@@ -15,7 +15,7 @@ class Visto{
         Reloj datoLec;
     public:
         Visto();
-        Visto(int cl, DtUsuario u, Reloj dl);
+        Visto(bool cl, DtUsuario u, Reloj dl);
         bool getConfLec();
         DtUsuario getUser();
         Reloj getDatoLec();

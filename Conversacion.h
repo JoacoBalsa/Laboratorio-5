@@ -5,6 +5,7 @@
 #include <string.h>
 #include <map>
 #include "DtMensaje.h"
+#include "DtUsuario.h"
 
 using namespace std;
 
@@ -15,6 +16,7 @@ class Conversacion{
         bool activa;
         //Pseudoatributos
         map<int, DtMensaje> mensajes;
+        map<int, DtUsuario> integrantes;
     public:
         Conversacion();
         Conversacion(int id, bool activa);
@@ -24,6 +26,8 @@ class Conversacion{
         void setActiva(bool a);
         DtMensaje getMensaje(int id);
         void setMensaje(int id, DtMensaje men);
+        DtUsuario getIntegrante(int tel);
+        void setIntegrante(int tel, DtUsuario integrante);
         ~Conversacion();
 };
 

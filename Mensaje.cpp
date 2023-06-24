@@ -31,10 +31,10 @@ Visto Mensaje::getConfLec(int tel){
         throw invalid_argument("Este usuario aun no ha visto el mensaje.\n");
 };
 void Mensaje::setConfLec(int tel, Visto confLec){
-    if(this->confsLec.find(tel) == this->confsLec.end())
-        this->confsLec.insert({tel, confLec});
-    else
+    if(this->confsLec.find(tel) != this->confsLec.end())
         throw invalid_argument("Este usuario ya ha visto el mensaje.\n");
+    else
+        this->confsLec[tel] = confLec;
 };
 DtUsuario Mensaje::getEmisor(){
     return this->emisor;

@@ -9,13 +9,13 @@ using namespace std;
 
 //FALTAN LOS PSEUDOATRIBUTOS
 
-class MenSimple{
+class MenSimple : public Mensaje{
     private:
         string texto;
     public:
         MenSimple();
         MenSimple(int id, Reloj fec, string text);
-        void setTexto(string texto);
+        void setTexto(string text);
         string getTexto();
         ~MenSimple();
 };

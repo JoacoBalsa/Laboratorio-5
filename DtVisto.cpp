@@ -1,7 +1,7 @@
 #include "DtVisto.h"
 
 Visto::Visto(){};
-Visto::Visto(int cl, DtUsuario u, Reloj dl){
+Visto::Visto(bool cl, DtUsuario u, Reloj dl){
     this->confLec = cl;
     this->user = u;
     this->datoLec = dl;
