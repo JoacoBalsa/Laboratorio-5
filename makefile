@@ -1,5 +1,5 @@
-main:	DtUsuario.o DtFecha.o DtHora.o DtReloj.o DtMensaje.o DtConversacion.o DtGrupo.o DtMenContacto.o DtMenImg.o DtMenSimple.o DtMenVid.o DtPrivada.o Usuario.o Mensaje.o MenSimple.o MenVid.o MenImg.o MenContacto.o main.o 
-	g++ DtUsuario.o DtFecha.o DtHora.o DtReloj.o DtMensaje.o DtConversacion.o DtGrupo.o DtMenContacto.o DtMenImg.o DtMenSimple.o DtMenVid.o DtPrivada.o Usuario.o Mensaje.o MenSimple.o MenVid.o MenImg.o MenContacto.o main.o -o sistema
+main:	DtUsuario.o DtFecha.o DtHora.o DtReloj.o DtMensaje.o DtConversacion.o DtGrupo.o DtMenContacto.o DtMenImg.o DtMenSimple.o DtMenVid.o DtPrivada.o Usuario.o Mensaje.o MenSimple.o MenVid.o MenImg.o MenContacto.o Conversacion.o main.o 
+	g++ DtUsuario.o DtFecha.o DtHora.o DtReloj.o DtMensaje.o DtConversacion.o DtGrupo.o DtMenContacto.o DtMenImg.o DtMenSimple.o DtMenVid.o DtPrivada.o Usuario.o Mensaje.o MenSimple.o MenVid.o MenImg.o MenContacto.o Conversacion.o main.o -o sistema
 
 DtUsuario.o: DtUsuario.cpp
 
@@ -36,6 +36,8 @@ MenVid.o: MenVid.cpp
 MenImg.o: MenImg.cpp
 
 MenContacto.o: MenContacto.cpp
+
+Conversacion.o: Conversacion.cpp
 
 main.o: main.cpp
 

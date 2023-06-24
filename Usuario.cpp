@@ -1,5 +1,7 @@
 #include "Usuario.h"
 
+using namespace std;
+
 Usuario::Usuario(){};
 Usuario::Usuario (int tel, string nom, Fecha fec, string bio, string img, Reloj ultvez){
     this->telefono = tel;
