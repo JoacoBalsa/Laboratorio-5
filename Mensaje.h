@@ -3,7 +3,7 @@
 #include <stdio.h>
 #include <iostream>
 #include <string.h>
-#include "../DataTypes/DtReloj.h"
+#include "DtReloj.h"
 
 using namespace std;
 

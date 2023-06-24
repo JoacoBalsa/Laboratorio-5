@@ -1,29 +1,41 @@
-main:	DtUsuario.o DtFecha.o DtHora.o DtReloj.o DtMensaje.o DtConversacion.o DtGrupo.o DtMenContacto.o DtMenImg.o DtMenSimple.o DtMenVid.o DtPrivada.o main.o
-	g++ DtUsuario.o DtFecha.o DtHora.o DtReloj.o DtMensaje.o DtConversacion.o DtGrupo.o DtMenContacto.o DtMenImg.o DtMenSimple.o DtMenVid.o DtPrivada.o main.o -o sistema
+main:	DtUsuario.o DtFecha.o DtHora.o DtReloj.o DtMensaje.o DtConversacion.o DtGrupo.o DtMenContacto.o DtMenImg.o DtMenSimple.o DtMenVid.o DtPrivada.o Usuario.o Mensaje.o MenSimple.o MenVid.o MenImg.o MenContacto.o main.o 
+	g++ DtUsuario.o DtFecha.o DtHora.o DtReloj.o DtMensaje.o DtConversacion.o DtGrupo.o DtMenContacto.o DtMenImg.o DtMenSimple.o DtMenVid.o DtPrivada.o Usuario.o Mensaje.o MenSimple.o MenVid.o MenImg.o MenContacto.o main.o -o sistema
 
-DtUsuario.o: DataTypes/DtUsuario.cpp
+DtUsuario.o: DtUsuario.cpp
 
-DtFecha.o: DataTypes/DtFecha.cpp
+DtFecha.o: DtFecha.cpp
 
-DtHora.o: DataTypes/DtHora.cpp
+DtHora.o: DtHora.cpp
 
-DtReloj.o: DataTypes/DtReloj.cpp
+DtReloj.o: DtReloj.cpp
 
-DtMensaje.o: DataTypes/DtMensaje.cpp
+DtMensaje.o: DtMensaje.cpp
 
-DtConversacion.o: DataTypes/DtConversacion.cpp
+DtConversacion.o: DtConversacion.cpp
 
-DtGrupo.o: DataTypes/DtGrupo.cpp
+DtGrupo.o: DtGrupo.cpp
 
-DtMenContacto.o: DataTypes/DtMenContacto.cpp
+DtMenContacto.o: DtMenContacto.cpp
 
-DtMenImg.o: DataTypes/DtMenImg.cpp
+DtMenImg.o: DtMenImg.cpp
 
-DtMenSimple.o: DataTypes/DtMenSimple.cpp
+DtMenSimple.o: DtMenSimple.cpp
 
-DtMenVid.o: DataTypes/DtMenVid.cpp
+DtMenVid.o: DtMenVid.cpp
 
-DtPrivada.o: DataTypes/DtPrivada.cpp
+DtPrivada.o: DtPrivada.cpp
+
+Usuario.o: Usuario.cpp
+
+Mensaje.o: Mensaje.cpp
+
+MenSimple.o: MenSimple.cpp
+
+MenVid.o: MenVid.cpp
+
+MenImg.o: MenImg.cpp
+
+MenContacto.o: MenContacto.cpp
 
 main.o: main.cpp
 

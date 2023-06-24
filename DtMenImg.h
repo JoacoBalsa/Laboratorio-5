@@ -1,30 +1,26 @@
-#ifndef MENIMG_H
-#define MENIMG_H
+#ifndef DTMENIMG_H
+#define DTMENIMG_H
 #include <stdio.h>
 #include <iostream>
 #include <string.h>
-#include "Mensaje.h"
-#include "../Formato.h"
-
+#include "DtMensaje.h"
+#include "Formato.h"
 using namespace std;
 
-//FALTAN LOS PSEUDOATRIBUTOS
-
-class MenImg : public Mensaje{
+class DtMenImg : public DtMensaje {
     private:
         float tamanio;
         Formato formato;
         string texto;
     public:
-        MenImg();
-        MenImg(int id, Reloj fec, float tam, Formato form, string text);
+        DtMenImg();
+        DtMenImg(int id, Reloj fec, float tam, Formato form, string tex);
         float getTamanio();
         void setTamanio(float tam);
         Formato getFormato();
         void setFormato(Formato form);
         string getTexto();
         void setTexto(string text);
-        ~MenImg();
+        ~DtMenImg();
 };
-
 #endif
