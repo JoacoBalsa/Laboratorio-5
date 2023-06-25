@@ -12,7 +12,7 @@ class DtMenSimple : public DtMensaje {
         string texto;
     public:
         DtMenSimple();
-        DtMenSimple(int id, Reloj fec, string text);
+        DtMenSimple(int id, DtReloj fec, string text);
         void setTexto(string texto);
         string getTexto();
         ~DtMenSimple();

@@ -2,7 +2,7 @@
 
 DtMensaje::DtMensaje(){};
 
-DtMensaje::DtMensaje(int id, Reloj fec){
+DtMensaje::DtMensaje(int id, DtReloj fec){
     this->id = id;
     this->fec_env = fec;
 };
@@ -15,11 +15,11 @@ void DtMensaje::setId(int id){
     this->id = id;
 };
 
-Reloj DtMensaje::getFecEnv(){
+DtReloj DtMensaje::getFecEnv(){
     return this->fec_env;
 };
 
-void DtMensaje::setFecEnv(Reloj fec){
+void DtMensaje::setFecEnv(DtReloj fec){
     this->fec_env = fec;
 };
 

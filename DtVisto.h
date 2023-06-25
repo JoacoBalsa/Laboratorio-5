@@ -12,16 +12,16 @@ class Visto{
     private:
         bool confLec;
         DtUsuario user;
-        Reloj datoLec;
+        DtReloj datoLec;
     public:
         Visto();
-        Visto(bool cl, DtUsuario u, Reloj dl);
+        Visto(bool cl, DtUsuario u, DtReloj dl);
         bool getConfLec();
         DtUsuario getUser();
-        Reloj getDatoLec();
+        DtReloj getDatoLec();
         void setConfLec(bool cl);
         void setUser(DtUsuario u);
-        void setDatoLec(Reloj dl);
+        void setDatoLec(DtReloj dl);
 };
 
 #endif

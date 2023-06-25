@@ -2,7 +2,7 @@
 
 DtMenContacto::DtMenContacto(){};
 
-DtMenContacto::DtMenContacto(int id, Reloj fec, int tel, string nom):DtMensaje(id, fec){
+DtMenContacto::DtMenContacto(int id, DtReloj fec, int tel, string nom):DtMensaje(id, fec){
     this->telefono = tel;
     this->nombre = nom;
 };

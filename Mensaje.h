@@ -15,17 +15,17 @@ class Mensaje{
     private:
         //Atributos
         int id;
-        Reloj fec_env;
+        DtReloj fec_env;
         //Pseudoatributos
         map<int, Visto> confsLec;
         DtUsuario emisor;
     public:
         Mensaje();
-        Mensaje(int id, Reloj fec);
+        Mensaje(int id, DtReloj fec);
         int getId();
         void setId(int id);
-        Reloj getFecEnv();
-        void setFecEnv(Reloj fec);
+        DtReloj getFecEnv();
+        void setFecEnv(DtReloj fec);
         Visto getConfLec(int tel);
         void setConfLec(int tel, Visto confLec);
         DtUsuario getEmisor();

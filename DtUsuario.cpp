@@ -2,7 +2,7 @@
 
 DtUsuario::DtUsuario(){};
 
-DtUsuario::DtUsuario (int tel, string nom, Fecha fec, string bio, string img, Reloj ultvez){
+DtUsuario::DtUsuario (int tel, string nom, Fecha fec, string bio, string img, DtReloj ultvez){
     this->telefono = tel;
     this->nombre = nom;
     this->fecReg = fec;
@@ -51,19 +51,19 @@ void DtUsuario::setImg(string url){
     this->imgUrl = url;
 };
 
-Reloj DtUsuario::getReg(){
+DtReloj DtUsuario::getReg(){
     return this->registrado;
 };
 
-void DtUsuario::setReg(Reloj reg){
+void DtUsuario::setReg(DtReloj reg){
     this->registrado = reg;
 };
 
-Reloj DtUsuario::getUltVez(){
+DtReloj DtUsuario::getUltVez(){
     return this->ultVez;
 };
 
-void DtUsuario::setUltVez(Reloj fecha){
+void DtUsuario::setUltVez(DtReloj fecha){
     this->ultVez = fecha;
 };
 

@@ -1,23 +1,21 @@
-#ifndef DTRELOJ_H
-#define DTRELOJ_H
-#include <stdio.h>
-#include <iostream>
-#include <string.h>
+#ifndef RELOJ_H
+#define RELOJ_H
 #include "DtFecha.h"
 #include "DtHora.h"
 
-class DtReloj{
+class Reloj{
     private:
+        static Reloj* instancia;
         Fecha fecha;
         Hora hora;
+        Reloj();
     public:
-        DtReloj();
-        DtReloj(Fecha f, Hora h);
+        static Reloj* getInstancia();
         Fecha getFecha();
         void setFecha(Fecha f);
         Hora getHora();
         void setHora(Hora h);
-        ~DtReloj();   
+        ~Reloj();  
 };
 
 #endif

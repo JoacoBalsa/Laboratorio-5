@@ -1,5 +1,5 @@
-main:	DtUsuario.o DtFecha.o DtHora.o DtReloj.o DtMensaje.o DtConversacion.o DtGrupo.o DtMenContacto.o DtMenImg.o DtMenSimple.o DtMenVid.o DtPrivada.o DtVisto.o Usuario.o Mensaje.o MenImg.o MenSimple.o MenVid.o MenContacto.o Conversacion.o  main.o 
-	g++ DtUsuario.o DtFecha.o DtHora.o DtReloj.o DtMensaje.o DtConversacion.o DtGrupo.o DtMenContacto.o DtMenImg.o DtMenSimple.o DtMenVid.o DtPrivada.o DtVisto.o Usuario.o Mensaje.o MenImg.o MenSimple.o MenVid.o MenContacto.o Conversacion.o  main.o -o sistema
+main:	DtUsuario.o DtFecha.o DtHora.o DtReloj.o DtMensaje.o DtConversacion.o DtGrupo.o DtMenContacto.o DtMenImg.o DtMenSimple.o DtMenVid.o DtPrivada.o DtVisto.o Usuario.o Mensaje.o MenImg.o MenSimple.o MenVid.o MenContacto.o Conversacion.o Fabrica.o ControlUsuario.o Reloj.o main.o 
+	g++ DtUsuario.o DtFecha.o DtHora.o DtReloj.o DtMensaje.o DtConversacion.o DtGrupo.o DtMenContacto.o DtMenImg.o DtMenSimple.o DtMenVid.o DtPrivada.o DtVisto.o Usuario.o Mensaje.o MenImg.o MenSimple.o MenVid.o MenContacto.o Conversacion.o Fabrica.o ControlUsuario.o Reloj.o main.o -o sistema
 
 DtUsuario.o: DtUsuario.cpp
 
@@ -40,6 +40,12 @@ MenVid.o: MenVid.cpp
 MenContacto.o: MenContacto.cpp
 
 Conversacion.o: Conversacion.cpp
+
+Fabrica.o: Fabrica.cpp
+
+ControlUsuario.o: ControlUsuario.cpp
+
+Reloj.o: Reloj.cpp
 
 main.o: main.cpp
 

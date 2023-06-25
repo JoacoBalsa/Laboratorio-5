@@ -1,7 +1,7 @@
 #include "MenImg.h"
 
 MenImg::MenImg(){};
-MenImg::MenImg(int id, Reloj fec, float tam, Formato form, string text):Mensaje(id,fec){
+MenImg::MenImg(int id, DtReloj fec, float tam, Formato form, string text):Mensaje(id,fec){
     this->tamanio = tam;
     this->formato = form;
     this->texto = text;

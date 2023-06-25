@@ -17,7 +17,7 @@ class MenImg : public Mensaje{
         string texto;
     public:
         MenImg();
-        MenImg(int id, Reloj fec, float tam, Formato form, string text);
+        MenImg(int id, DtReloj fec, float tam, Formato form, string text);
         float getTamanio();
         void setTamanio(float tam);
         Formato getFormato();

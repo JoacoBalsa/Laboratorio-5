@@ -13,7 +13,7 @@ class DtMenContacto : public DtMensaje{
         string nombre;
     public: 
         DtMenContacto();
-        DtMenContacto(int id, Reloj fec, int tel, string nom);
+        DtMenContacto(int id, DtReloj fec, int tel, string nom);
         int getTelefono();
         void setTelefono(int tel);
         string getNombre();

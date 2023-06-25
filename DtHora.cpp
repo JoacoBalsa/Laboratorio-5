@@ -1,6 +1,9 @@
 #include "DtHora.h"
 
-Hora::Hora(){};
+Hora::Hora(){
+    this->hor = 0;
+    this->minu = 0;
+};
 Hora::Hora(int h, int m){
     this->hor=h;
     this->minu=m;

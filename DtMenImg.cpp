@@ -2,7 +2,7 @@
 
 DtMenImg::DtMenImg(){};
 
-DtMenImg::DtMenImg(int id, Reloj fec, float tam, Formato form, string tex):DtMensaje(id,fec){
+DtMenImg::DtMenImg(int id, DtReloj fec, float tam, Formato form, string tex):DtMensaje(id,fec){
     this->tamanio = tam;
     this->formato = form;
     this->texto = tex;

@@ -2,7 +2,7 @@
 
 DtMenVid::DtMenVid(){};
 
-DtMenVid::DtMenVid(int id, Reloj fec, float dur):DtMensaje(id,fec){
+DtMenVid::DtMenVid(int id, DtReloj fec, float dur):DtMensaje(id,fec){
     this->dur = dur;
 };
 

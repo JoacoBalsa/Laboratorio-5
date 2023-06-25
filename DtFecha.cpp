@@ -1,6 +1,10 @@
 #include "DtFecha.h"
 
-Fecha::Fecha(){};
+Fecha::Fecha(){
+    this->dia = 1;
+    this->mes = 1;
+    this->anio = 2000;
+};
 Fecha:: Fecha (int d, int m, int a){
     this->dia=d;
     this->mes=m;

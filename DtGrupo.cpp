@@ -2,7 +2,7 @@
 
 DtGrupo::DtGrupo(){};
 
-DtGrupo::DtGrupo(int id, bool act, string nom, string url, Reloj fecha):DtConversacion(id, act){
+DtGrupo::DtGrupo(int id, bool act, string nom, string url, DtReloj fecha):DtConversacion(id, act){
     this->nombre = nom;
     this->imgUrl = url;
     this->fechaCreacion = fecha;
@@ -24,11 +24,11 @@ void DtGrupo::setImg(string url){
     this->imgUrl = url;
 };
 
-Reloj DtGrupo::getFechaCreacion(){
+DtReloj DtGrupo::getFechaCreacion(){
     return this->fechaCreacion;
 };
 
-void DtGrupo::setFechaCreacion(Reloj fecha){
+void DtGrupo::setFechaCreacion(DtReloj fecha){
     this->fechaCreacion = fecha;
 };
 

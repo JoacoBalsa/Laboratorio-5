@@ -3,13 +3,13 @@
 using namespace std;
 
 Usuario::Usuario(){};
-Usuario::Usuario (int tel, string nom, Fecha fec, string bio, string img, Reloj ultvez){
+Usuario::Usuario (int tel, string nom, DtReloj fec, string bio, string img, DtReloj ultvez){
     this->telefono = tel;
     this->nombre = nom;
     this->fecReg = fec;
     this->biografia = bio;
     this->imgUrl = img;
-    this->registrado = ultVez;
+    this->ultVez = ultVez;
 };
 
 int Usuario::getTel(){
@@ -28,11 +28,11 @@ void Usuario::setNombre(string n){
     this->nombre = n;
 };
 
-Fecha Usuario::getFecha(){
+DtReloj Usuario::getFecha(){
     return this->fecReg;
 };
 
-void Usuario::setFecha(Fecha f){
+void Usuario::setFecha(DtReloj f){
     this->fecReg = f;
 };
 
@@ -52,19 +52,11 @@ void Usuario::setImg(string url){
     this->imgUrl = url;
 };
 
-Reloj Usuario::getReg(){
-    return this->registrado;
-};
-
-void Usuario::setReg(Reloj reg){
-    this->registrado = reg;
-};
-
-Reloj Usuario::getUltVez(){
+DtReloj Usuario::getUltVez(){
     return this->ultVez;
 };
 
-void Usuario::setUltVez(Reloj fecha){
+void Usuario::setUltVez(DtReloj fecha){
     this->ultVez = fecha;
 };
 

@@ -15,7 +15,7 @@ class MenContacto : public Mensaje{
         string nombre;
     public: 
         MenContacto();
-        MenContacto(int id, Reloj fec, int tel, string nom);
+        MenContacto(int id, DtReloj fec, int tel, string nom);
         int getTelefono();
         void setTelefono(int tel);
         string getNombre();

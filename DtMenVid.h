@@ -13,7 +13,7 @@ class DtMenVid : public DtMensaje {
         float dur;
     public:
         DtMenVid();
-        DtMenVid(int id, Reloj fec, float dur);
+        DtMenVid(int id, DtReloj fec, float dur);
         float getDuracion();
         void setDuracion(float dur);
         ~DtMenVid();

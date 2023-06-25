@@ -3,7 +3,7 @@
 using namespace std;
 
 Mensaje::Mensaje(){};
-Mensaje::Mensaje(int id, Reloj fec){
+Mensaje::Mensaje(int id, DtReloj fec){
     this->id = id;
     this->fec_env = fec;
 };
@@ -16,11 +16,11 @@ void Mensaje::setId(int id){
     this->id = id;
 };
 
-Reloj Mensaje::getFecEnv(){
+DtReloj Mensaje::getFecEnv(){
     return this->fec_env;
 };
 
-void Mensaje::setFecEnv(Reloj fec){
+void Mensaje::setFecEnv(DtReloj fec){
     this->fec_env = fec;
 };
 

@@ -1,7 +1,7 @@
 #include "MenContacto.h"
 
 MenContacto::MenContacto(){};
-MenContacto::MenContacto(int id, Reloj fec, int tel, string nom):Mensaje(id,fec){
+MenContacto::MenContacto(int id, DtReloj fec, int tel, string nom):Mensaje(id,fec){
     this->telefono = tel;
     this->nombre = nom;
 };

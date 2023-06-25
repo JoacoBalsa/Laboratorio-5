@@ -12,16 +12,16 @@ class DtGrupo : public DtConversacion{
     private:
         string nombre;
         string imgUrl;
-        Reloj fechaCreacion;
+        DtReloj fechaCreacion;
     public:
         DtGrupo();
-        DtGrupo(int id, bool act, string nom, string url, Reloj fecha);
+        DtGrupo(int id, bool act, string nom, string url, DtReloj fecha);
         string getNombre();
         void setNombre(string nom);
         string getImg();
         void setImg(string url);
-        Reloj getFechaCreacion();
-        void setFechaCreacion(Reloj fecha);
+        DtReloj getFechaCreacion();
+        void setFechaCreacion(DtReloj fecha);
         ~DtGrupo();
 };
 

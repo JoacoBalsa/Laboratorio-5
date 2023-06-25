@@ -14,7 +14,7 @@ class MenVid : public Mensaje {
         float dur;
     public:
         MenVid();
-        MenVid(int id, Reloj fec, float dur);
+        MenVid(int id, DtReloj fec, float dur);
         float getDuracion();
         void setDuracion(float dur);
         ~MenVid();

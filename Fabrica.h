@@ -1,6 +1,6 @@
 #ifndef FABRICA_H
 #define FABRICA_H
-#include "IControlAbrirApp.h"
+#include "IAbrirApp.h"
 
 class Fabrica{
     private:
@@ -8,7 +8,7 @@ class Fabrica{
         Fabrica();
     public:
         static Fabrica* getInstancia();
-        IControlAbrirApp* getIControlAbrirApp();
+        IAbrirApp* getIAbrirApp();
         ~Fabrica();
 };
 #endif

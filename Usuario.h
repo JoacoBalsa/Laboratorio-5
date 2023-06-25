@@ -19,11 +19,10 @@ class Usuario{
         //Atributos
         int telefono;
         string nombre;
-        Fecha fecReg;
+        DtReloj fecReg;
         string biografia;
-        string imgUrl;
-        Reloj registrado;         
-        Reloj ultVez;
+        string imgUrl;        
+        DtReloj ultVez;
         //Pseudoatributos
         map<int, DtUsuario> contactos;
         map<int, DtMensaje> menEnv;
@@ -31,21 +30,19 @@ class Usuario{
         map<int, DtConversacion> chats;
     public:
         Usuario();
-        Usuario (int tel, string nom, Fecha fec, string bio, string img, Reloj ultvez);
+        Usuario (int tel, string nom, DtReloj fec, string bio, string img, DtReloj ultvez);
         int getTel();
         void setTel(int tel);
         string getNombre();
         void setNombre(string n);
-        Fecha getFecha();
-        void setFecha(Fecha f);
+        DtReloj getFecha();
+        void setFecha(DtReloj f);
         string getBio();
         void setBio(string bio);
         string getImg();
         void setImg(string url);
-        Reloj getReg();
-        void setReg(Reloj reg);
-        Reloj getUltVez();
-        void setUltVez(Reloj fecha);
+        DtReloj getUltVez();
+        void setUltVez(DtReloj fecha);
         DtUsuario getContacto(int tel);
         void setContacto(int tel, DtUsuario cont);
         DtMensaje getMenEnv(int id);

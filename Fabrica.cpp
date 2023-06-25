@@ -1,5 +1,6 @@
 #include "Fabrica.h"
-#include "ControlAbrirApp.h"
+#include "IAbrirApp.h"
+#include "ControlUsuario.h"
 
 Fabrica* Fabrica::instancia=NULL;
 
@@ -11,6 +12,6 @@ Fabrica* Fabrica::getInstancia(){
     return instancia;
 }
 
-IControlAbrirApp* getIControlAbrirApp(){
-    return new ControlAbrirApp();
+IAbrirApp* Fabrica::getIAbrirApp(){
+    return ControlUsuario::getInstancia();
 }

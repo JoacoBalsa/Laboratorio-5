@@ -14,7 +14,7 @@ class MenSimple : public Mensaje{
         string texto;
     public:
         MenSimple();
-        MenSimple(int id, Reloj fec, string text);
+        MenSimple(int id, DtReloj fec, string text);
         void setTexto(string text);
         string getTexto();
         ~MenSimple();

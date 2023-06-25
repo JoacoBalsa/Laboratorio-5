@@ -1,26 +1,26 @@
 #include "DtReloj.h"
 
-Reloj::Reloj(){};
+DtReloj::DtReloj(){}
 
-Reloj::Reloj(Fecha f, Hora h){
+DtReloj::DtReloj(Fecha f, Hora h){
     this->fecha = f;
     this->hora = h;
 };
 
-Fecha Reloj::getFecha(){
+Fecha DtReloj::getFecha(){
     return this->fecha;
 };
 
-void Reloj::setFecha(Fecha f){
+void DtReloj::setFecha(Fecha f){
     this->fecha = f;
 };
 
-Hora Reloj::getHora(){
+Hora DtReloj::getHora(){
     return this->hora;
 };
 
-void Reloj::setHora(Hora h){
+void DtReloj::setHora(Hora h){
     this->hora = h;
 };
 
-Reloj::~Reloj(){};
+DtReloj::~DtReloj(){};

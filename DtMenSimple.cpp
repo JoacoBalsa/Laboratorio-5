@@ -2,7 +2,7 @@
 
 DtMenSimple::DtMenSimple(){};
 
-DtMenSimple::DtMenSimple(int id, Reloj fec, string text):DtMensaje(id,fec){
+DtMenSimple::DtMenSimple(int id, DtReloj fec, string text):DtMensaje(id,fec){
     this->texto = text;
 };
 

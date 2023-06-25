@@ -9,14 +9,14 @@ using namespace std;
 class DtMensaje{
     private:
         int id;
-        Reloj fec_env;
+        DtReloj fec_env;
     public:
         DtMensaje();
-        DtMensaje(int id, Reloj fec);
+        DtMensaje(int id, DtReloj fec);
         int getId();
         void setId(int id);
-        Reloj getFecEnv();
-        void setFecEnv(Reloj fec);
+        DtReloj getFecEnv();
+        void setFecEnv(DtReloj fec);
         ~DtMensaje();
 };
 

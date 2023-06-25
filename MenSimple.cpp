@@ -1,7 +1,7 @@
 #include "MenSimple.h"
 
 MenSimple::MenSimple(){};
-MenSimple::MenSimple(int id, Reloj fec, string text):Mensaje(id,fec){
+MenSimple::MenSimple(int id, DtReloj fec, string text):Mensaje(id,fec){
     this->texto = text;
 };
 void MenSimple::setTexto(string text){

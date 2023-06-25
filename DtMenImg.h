@@ -14,7 +14,7 @@ class DtMenImg : public DtMensaje {
         string texto;
     public:
         DtMenImg();
-        DtMenImg(int id, Reloj fec, float tam, Formato form, string tex);
+        DtMenImg(int id, DtReloj fec, float tam, Formato form, string tex);
         float getTamanio();
         void setTamanio(float tam);
         Formato getFormato();
