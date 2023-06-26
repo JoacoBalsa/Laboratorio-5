@@ -7,8 +7,8 @@
 #include "Fabrica.h"
 
 //Interfaces
-#include "IAbrirApp.h"
-#include "IReloj.h"
+#include "Controles_Interfaces/IAbrirApp.h"
+#include "Controles_Interfaces/IReloj.h"
 
 using namespace std;
 

@@ -2,8 +2,8 @@
 #define CONTROLRELOJ_H
 #include <string.h>
 #include <iostream>
-#include "Reloj.h"
-#include "DtReloj.h"
+#include "../Clases/Reloj.h"
+#include "../DataTypes/DtReloj.h"
 #include "IReloj.h"
 
 using namespace std;

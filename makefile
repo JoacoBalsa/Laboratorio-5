@@ -1,53 +1,58 @@
-main:	DtUsuario.o DtFecha.o DtHora.o DtReloj.o DtMensaje.o DtConversacion.o DtGrupo.o DtMenContacto.o DtMenImg.o DtMenSimple.o DtMenVid.o DtPrivada.o DtVisto.o Usuario.o Mensaje.o MenImg.o MenSimple.o MenVid.o MenContacto.o Conversacion.o Fabrica.o ControlUsuario.o Reloj.o ControlReloj.o main.o 
-	g++ DtUsuario.o DtFecha.o DtHora.o DtReloj.o DtMensaje.o DtConversacion.o DtGrupo.o DtMenContacto.o DtMenImg.o DtMenSimple.o DtMenVid.o DtPrivada.o DtVisto.o Usuario.o Mensaje.o MenImg.o MenSimple.o MenVid.o MenContacto.o Conversacion.o Fabrica.o ControlUsuario.o Reloj.o ControlReloj.o main.o -o sistema
+CC = Clases/
+CCI = Controles_Interfaces/
+CDT= DataTypes/
+CD = 
 
-DtUsuario.o: DtUsuario.cpp
+main:	$(CDT)DtUsuario.o $(CDT)DtFecha.o $(CDT)DtHora.o $(CDT)DtReloj.o $(CDT)DtMensaje.o $(CDT)DtConversacion.o $(CDT)DtGrupo.o $(CDT)DtMenContacto.o $(CDT)DtMenImg.o $(CDT)DtMenSimple.o $(CDT)DtMenVid.o $(CDT)DtPrivada.o $(CDT)DtVisto.o $(CC)Usuario.o $(CC)Mensaje.o $(CC)MenImg.o $(CC)MenSimple.o $(CC)MenVid.o $(CC)MenContacto.o $(CC)Conversacion.o $(CD)Fabrica.o $(CCI)ControlUsuario.o $(CC)Reloj.o $(CCI)ControlReloj.o main.o 
+	g++ $(CDT)DtUsuario.o $(CDT)DtFecha.o $(CDT)DtHora.o $(CDT)DtReloj.o $(CDT)DtMensaje.o $(CDT)DtConversacion.o $(CDT)DtGrupo.o $(CDT)DtMenContacto.o $(CDT)DtMenImg.o $(CDT)DtMenSimple.o $(CDT)DtMenVid.o $(CDT)DtPrivada.o $(CDT)DtVisto.o $(CC)Usuario.o $(CC)Mensaje.o $(CC)MenImg.o $(CC)MenSimple.o $(CC)MenVid.o $(CC)MenContacto.o $(CC)Conversacion.o $(CD)Fabrica.o $(CCI)ControlUsuario.o $(CC)Reloj.o $(CCI)ControlReloj.o main.o  -o sistema
 
-DtFecha.o: DtFecha.cpp
+$(CDT)DtUsuario.o: $(CDT)DtUsuario.cpp
 
-DtHora.o: DtHora.cpp
+$(CDT)DtFecha.o: $(CDT)DtFecha.cpp
 
-DtReloj.o: DtReloj.cpp
+$(CDT)DtHora.o: $(CDT)DtHora.cpp
 
-DtMensaje.o: DtMensaje.cpp
+$(CDT)DtReloj.o: $(CDT)DtReloj.cpp
 
-DtConversacion.o: DtConversacion.cpp
+$(CDT)DtMensaje.o: $(CDT)DtMensaje.cpp
 
-DtGrupo.o: DtGrupo.cpp
+$(CDT)DtConversacion.o: $(CDT)DtConversacion.cpp
 
-DtMenContacto.o: DtMenContacto.cpp
+$(CDT)DtGrupo.o: $(CDT)DtGrupo.cpp
 
-DtMenImg.o: DtMenImg.cpp
+$(CDT)DtMenContacto.o: $(CDT)DtMenContacto.cpp
 
-DtMenSimple.o: DtMenSimple.cpp
+$(CDT)DtMenImg.o: $(CDT)DtMenImg.cpp
 
-DtMenVid.o: DtMenVid.cpp
+$(CDT)DtMenSimple.o: $(CDT)DtMenSimple.cpp
 
-DtPrivada.o: DtPrivada.cpp
+$(CDT)DtMenVid.o: $(CDT)DtMenVid.cpp
 
-DtVisto.o: DtVisto.cpp
+$(CDT)DtPrivada.o: $(CDT)DtPrivada.cpp
 
-Usuario.o: Usuario.cpp
+$(CDT)DtVisto.o: $(CDT)DtVisto.cpp
 
-Mensaje.o: Mensaje.cpp
+$(CC)Usuario.o: $(CC)Usuario.cpp
 
-MenImg.o: MenImg.cpp
+$(CC)Mensaje.o: $(CC)Mensaje.cpp
 
-MenSimple.o: MenSimple.cpp
+$(CC)MenImg.o: $(CC)MenImg.cpp
 
-MenVid.o: MenVid.cpp
+$(CC)MenSimple.o: $(CC)MenSimple.cpp
 
-MenContacto.o: MenContacto.cpp
+$(CC)MenVid.o: $(CC)MenVid.cpp
 
-Conversacion.o: Conversacion.cpp
+$(CC)MenContacto.o: $(CC)MenContacto.cpp
 
-Fabrica.o: Fabrica.cpp
+$(CC)Conversacion.o: $(CC)Conversacion.cpp
 
-ControlUsuario.o: ControlUsuario.cpp
+$(CD)Fabrica.o: Fabrica.cpp
 
-Reloj.o: Reloj.cpp
+$(CCI)ControlUsuario.o: $(CCI)ControlUsuario.cpp
 
-ControlReloj.o: ControlReloj.cpp
+$(CC)Reloj.o: $(CC)Reloj.cpp
+
+$(CCI)ControlReloj.o: $(CCI)ControlReloj.cpp
 
 main.o: main.cpp
 

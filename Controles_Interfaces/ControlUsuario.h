@@ -1,13 +1,12 @@
-#ifndef CONTROLABRIRAPP_H
-#define CONTROLABRIRAPP_H
+#ifndef CONTROLUSUARIO_H
+#define CONTROLUSUARIO_H
 #include "IAbrirApp.h"
 #include <string.h>
 #include <iostream>
 #include <map>
-#include "Usuario.h"
-#include "Reloj.h"
-#include "DtReloj.h"
-
+#include "../Clases/Usuario.h"
+#include "../Clases/Reloj.h"
+#include "../DataTypes/DtReloj.h"
 
 using namespace std;
 

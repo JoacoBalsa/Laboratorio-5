@@ -4,7 +4,7 @@
 #include <iostream>
 #include <string.h>
 #include "Mensaje.h"
-#include "Formato.h"
+#include "../Formato.h"
 
 using namespace std;
 

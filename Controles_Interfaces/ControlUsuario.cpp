@@ -1,6 +1,4 @@
 #include "ControlUsuario.h"
-#include "DtReloj.h"
-#include "Reloj.h"
 
 ControlUsuario* ControlUsuario::instancia = NULL;
 

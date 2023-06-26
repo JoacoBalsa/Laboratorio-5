@@ -3,12 +3,12 @@
 #include <stdio.h>
 #include <iostream>
 #include <string.h>
-#include "DtMensaje.h"
-#include "DtReloj.h"
+#include "../DataTypes/DtMensaje.h"
+#include "../DataTypes/DtReloj.h"
 #include <map>
 #include <set>
-#include "DtConversacion.h"
-#include "DtUsuario.h"
+#include "../DataTypes/DtConversacion.h"
+#include "../DataTypes/DtUsuario.h"
 
 using namespace std;
 

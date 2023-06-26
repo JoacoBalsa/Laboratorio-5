@@ -1,13 +1,4 @@
 #include "main.h"
-#include <iostream>
-#include <stdio.h>
-
-//Fabrica
-#include "Fabrica.h"
-
-//Interfaces
-#include "IAbrirApp.h"
-#include "IReloj.h"
 
 using namespace std;
 // Actualizar coso fecha ultima vez.

@@ -4,8 +4,8 @@
 #include <iostream>
 #include <string.h>
 #include <map>
-#include "DtMensaje.h"
-#include "DtUsuario.h"
+#include "../DataTypes/DtMensaje.h"
+#include "../DataTypes/DtUsuario.h"
 
 using namespace std;
 

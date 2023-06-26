@@ -1,7 +1,4 @@
 #include "Fabrica.h"
-#include "IAbrirApp.h"
-#include "ControlUsuario.h"
-#include "ControlReloj.h"
 
 Fabrica* Fabrica::instancia=NULL;
 

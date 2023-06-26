@@ -3,8 +3,8 @@
 #include <stdio.h>
 #include <iostream>
 #include <string.h>
-#include "DtReloj.h"
-#include "DtVisto.h"
+#include "../DataTypes/DtReloj.h"
+#include "../DataTypes/DtVisto.h"
 #include <map>
 
 using namespace std;

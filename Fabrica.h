@@ -1,7 +1,9 @@
 #ifndef FABRICA_H
 #define FABRICA_H
-#include "IAbrirApp.h"
-#include "IReloj.h"
+#include "Controles_Interfaces/IAbrirApp.h"
+#include "Controles_Interfaces/IReloj.h"
+#include "Controles_Interfaces/ControlUsuario.h"
+#include "Controles_Interfaces/ControlReloj.h"
 
 class Fabrica{
     private:
