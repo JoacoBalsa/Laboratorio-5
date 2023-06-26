@@ -2,8 +2,8 @@ CC = Clases/
 CCI = Controles_Interfaces/
 CDT= DataTypes/
 
-main:	$(CDT)DtUsuario.o $(CDT)DtFecha.o $(CDT)DtHora.o $(CDT)DtReloj.o $(CDT)DtMensaje.o $(CDT)DtConversacion.o $(CDT)DtGrupo.o $(CDT)DtMenContacto.o $(CDT)DtMenImg.o $(CDT)DtMenSimple.o $(CDT)DtMenVid.o $(CDT)DtPrivada.o $(CDT)DtVisto.o $(CC)Usuario.o $(CC)Mensaje.o $(CC)MenImg.o $(CC)MenSimple.o $(CC)MenVid.o $(CC)MenContacto.o $(CC)Conversacion.o Fabrica.o $(CCI)ControlUsuario.o $(CC)Reloj.o $(CCI)ControlReloj.o main.o 
-	g++ $(CDT)DtUsuario.o $(CDT)DtFecha.o $(CDT)DtHora.o $(CDT)DtReloj.o $(CDT)DtMensaje.o $(CDT)DtConversacion.o $(CDT)DtGrupo.o $(CDT)DtMenContacto.o $(CDT)DtMenImg.o $(CDT)DtMenSimple.o $(CDT)DtMenVid.o $(CDT)DtPrivada.o $(CDT)DtVisto.o $(CC)Usuario.o $(CC)Mensaje.o $(CC)MenImg.o $(CC)MenSimple.o $(CC)MenVid.o $(CC)MenContacto.o $(CC)Conversacion.o Fabrica.o $(CCI)ControlUsuario.o $(CC)Reloj.o $(CCI)ControlReloj.o main.o  -o sistema
+main:	$(CDT)DtUsuario.o $(CDT)DtFecha.o $(CDT)DtHora.o $(CDT)DtReloj.o $(CDT)DtMensaje.o $(CDT)DtConversacion.o $(CDT)DtGrupo.o $(CDT)DtMenContacto.o $(CDT)DtMenImg.o $(CDT)DtMenSimple.o $(CDT)DtMenVid.o $(CDT)DtPrivada.o $(CDT)DtVisto.o $(CC)Usuario.o $(CC)Mensaje.o $(CC)MenImg.o $(CC)MenSimple.o $(CC)MenVid.o $(CC)MenContacto.o $(CC)Conversacion.o Fabrica.o $(CCI)ControlAbrirApp.o $(CC)Reloj.o $(CCI)ControlReloj.o $(CCI)ManejadorUsuario.o main.o 
+	g++ $(CDT)DtUsuario.o $(CDT)DtFecha.o $(CDT)DtHora.o $(CDT)DtReloj.o $(CDT)DtMensaje.o $(CDT)DtConversacion.o $(CDT)DtGrupo.o $(CDT)DtMenContacto.o $(CDT)DtMenImg.o $(CDT)DtMenSimple.o $(CDT)DtMenVid.o $(CDT)DtPrivada.o $(CDT)DtVisto.o $(CC)Usuario.o $(CC)Mensaje.o $(CC)MenImg.o $(CC)MenSimple.o $(CC)MenVid.o $(CC)MenContacto.o $(CC)Conversacion.o Fabrica.o $(CCI)ControlAbrirApp.o $(CC)Reloj.o $(CCI)ControlReloj.o $(CCI)ManejadorUsuario.o main.o  -o sistema
 
 $(CDT)DtUsuario.o: $(CDT)DtUsuario.cpp
 
@@ -47,11 +47,13 @@ $(CC)Conversacion.o: $(CC)Conversacion.cpp
 
 Fabrica.o: Fabrica.cpp
 
-$(CCI)ControlUsuario.o: $(CCI)ControlUsuario.cpp
+$(CCI)ControlAbrirApp.o: $(CCI)ControlAbrirApp.cpp
 
 $(CC)Reloj.o: $(CC)Reloj.cpp
 
 $(CCI)ControlReloj.o: $(CCI)ControlReloj.cpp
+
+$(CCI)ManejadorUsuario.o: $(CCI)ManejadorUsuario.cpp
 
 main.o: main.cpp
 

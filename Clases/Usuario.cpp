@@ -73,20 +73,6 @@ void Usuario::setContacto(int tel, DtUsuario cont){
        this->contactos[tel] = cont;
 };
 
-DtMensaje Usuario::getMenEnv(int id){
-    if(this->menEnv.find(id) != this->menEnv.end())
-        return this->menEnv[id];
-    else
-        throw invalid_argument("No se ha mandado ese mensaje.\n");
-};
-
-void Usuario::setMenEnv(int id, DtMensaje men){
-    if(this->menEnv.find(id) != this->menEnv.end())
-        throw invalid_argument("Ya se ha mandado ese mensaje.\n");
-    else
-        this->menEnv[id] = men;
-};
-
 DtMensaje Usuario::getMenRec(int id){
     if(this->menRec.find(id) != this->menRec.end())
         return this->menRec[id];

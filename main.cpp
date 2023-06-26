@@ -6,16 +6,16 @@ int main(){
     Fabrica* fabrica = Fabrica::getInstancia();
     IAbrirApp* iabrirapp = fabrica->getIAbrirApp();
     IReloj* ireloj = fabrica->getIReloj();
-    int numeroSalida = 14, opc;
+    int nroSalida = 14, opc;
     
     menu();
-    ingresarOpcion(opc, 1, numeroSalida);
-    while(opc != numeroSalida){
+    ingresarOpcion(opc, 1, nroSalida);
+    while(opc != nroSalida){
         switch(opc)
             {
                 case 1:             //Caso Abrir App
                     if(!iabrirapp->sesionActiva()) 
-                        menuAbrirApp(opc, iabrirapp, numeroSalida, ireloj);
+                        menuAbrirApp(opc, iabrirapp, nroSalida, ireloj);
                     else
                         cout<<"Cierre la sesion actual para iniciar otra."<<endl;
                 break;
@@ -42,7 +42,7 @@ int main(){
                 break;
             }
             menu();
-            ingresarOpcion(opc, 1, numeroSalida);
+            ingresarOpcion(opc, 1, nroSalida);
     }
 }
 

@@ -25,7 +25,6 @@ class Usuario{
         DtReloj ultVez;
         //Pseudoatributos
         map<int, DtUsuario> contactos;
-        map<int, DtMensaje> menEnv;
         map<int, DtMensaje> menRec;
         map<int, DtConversacion> chats;
     public:
@@ -45,8 +44,6 @@ class Usuario{
         void setUltVez(DtReloj fecha);
         DtUsuario getContacto(int tel);
         void setContacto(int tel, DtUsuario cont);
-        DtMensaje getMenEnv(int id);
-        void setMenEnv(int id, DtMensaje men);
         DtMensaje getMenRec(int id);
         void setMenRec(int id, DtMensaje men);
         DtConversacion getChat(int id);

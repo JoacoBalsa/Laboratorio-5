@@ -1,4 +1,6 @@
 #include "Fabrica.h"
+#include "Controles_Interfaces/ControlAbrirApp.h"
+#include "Controles_Interfaces/ControlReloj.h"
 
 Fabrica* Fabrica::instancia=NULL;
 
@@ -11,7 +13,7 @@ Fabrica* Fabrica::getInstancia(){
 }
 
 IAbrirApp* Fabrica::getIAbrirApp(){
-    return ControlUsuario::getInstancia();
+    return new ControlAbrirApp();
 }
 
 IReloj* Fabrica::getIReloj(){
