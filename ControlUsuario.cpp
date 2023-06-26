@@ -37,8 +37,10 @@ bool ControlUsuario::sesionActiva(){
     return this->sesionActual != NULL;
 }
 
-void ControlUsuario::cerrarSesion(){
-    this->sesionActual = NULL;
+void ControlUsuario::cerrarSesion(IReloj* ireloj){
+    int tel = this->sesionActual->getTel();
+    usuarios[tel]->setUltVez(ireloj->getFecha()); //Actualiza la ultima hora de conexion de la sesion actual
+    this->sesionActual = NULL; //Cierra la sesion actual
 }
 
 ControlUsuario::~ControlUsuario(){} //Eliminar todos los usuarios de la coleccion liberando la memoria de cada uno

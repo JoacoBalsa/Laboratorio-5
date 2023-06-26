@@ -20,7 +20,6 @@ Fecha Reloj::getFecha(){
 }
 
 void Reloj::setFecha(Fecha f){
-    cout << "seteo fecha desde reloj" << endl;
     this->fecha = f;
 }
 

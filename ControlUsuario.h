@@ -23,7 +23,7 @@ class ControlUsuario: public IAbrirApp{
         void setSesionActual(int tel);
         DtReloj altaUsuario(int telefono, string nombre, string url, string desc, IReloj* ireloj);
         bool sesionActiva();
-        void cerrarSesion();
+        void cerrarSesion(IReloj* ireloj);
         ~ControlUsuario();
 };
 #endif

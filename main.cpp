@@ -22,16 +22,22 @@ int main(){
     while(opc != numeroSalida){
         switch(opc)
             {
-                case 1:         //Caso Abrir App
+                case 1:             //Caso Abrir App
                     if(!iabrirapp->sesionActiva()) 
                         menuAbrirApp(opc, iabrirapp, numeroSalida, ireloj);
                     else
                         cout<<"Cierre la sesion actual para iniciar otra."<<endl;
                 break;
-                case 12:        //Caso Cerrar App
+                case 2:             //Caso Enviar Mensaje
                     if(iabrirapp->sesionActiva()){
-                        iabrirapp->cerrarSesion();
-
+                        //funcion()
+                    }
+                    else
+                        cout<<"Debe iniciar sesion antes."<<endl;
+                break;
+                case 12:            //Caso Cerrar App
+                    if(iabrirapp->sesionActiva()){
+                        iabrirapp->cerrarSesion(ireloj);
                         cout << "Sesion cerrada con exito."<< endl;
                     }
                     else
@@ -63,7 +69,7 @@ void menu(){
     cout<<"•10 Agregar participantes a un grupo"<<endl;  //(opcional)
     cout<<"•11 Modificar usuario"<<endl;                  //(opcional)
     cout<<"•12 CerrarApp"<<endl;                          //(opcional)
-    cout <<"•13 Cargar datos de prueba"<<endl;
+    cout<<"•13 Cargar datos de prueba"<<endl;
     cout<<"•14 Salir"<<endl; 
     cout<<"-------------------------------------"<<endl;
 }
@@ -131,21 +137,40 @@ void menuCambiarFecha(IReloj* r){
     cout << "Ingrese una nueva fecha:" << endl;
     cout << "Dia: ";
     cin >> dia;
+    while(dia < 1 || dia > 31){
+        cout << "Valor invalido. Ingrese un valor valido." << endl;
+        cin >> dia;
+    }
     cout << "Mes: ";
     cin >> mes;
+    while(mes < 1 || mes > 12){
+        cout << "Valor invalido. Ingrese un valor valido." << endl;
+        cin >> mes;
+    }
     cout << "Anio: ";
     cin >> anio;
+    while(anio < 2000 || anio > 2024){
+        cout << "Valor invalido. Ingrese un valor valido." << endl;
+        cin >> anio;
+    }
     cout <<"Hora: ";
     cin >> hora;
+    while(hora < 0 || hora > 23){
+        cout << "Valor invalido. Ingrese un valor valido." << endl;
+        cin >> hora;
+    }
     cout << "Minuto: ";
     cin >> minuto;
+    while(minuto < 1 || minuto > 59){
+        cout << "Valor invalido. Ingrese un valor valido." << endl;
+        cin >> minuto;
+    }
     Fecha fec = Fecha(dia, mes, anio);
     aux.setFecha(fec);
     Hora hor = Hora(hora, minuto);
     aux.setHora(hor);
-    cout << "Voy a entrar a ireloj"<< endl;
     r->setFecha(aux);
-    cout << "Fecha establecida correctamente." << endl;
+    cout << "Fecha y hora del sistema cambiados correctamente." << endl;
 }
 
 void mostrarFecha(IReloj* r){

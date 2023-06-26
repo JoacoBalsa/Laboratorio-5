@@ -14,7 +14,7 @@ class IAbrirApp{
         virtual DtReloj altaUsuario(int telefono, string nombre, string url, string desc, IReloj* ireloj) = 0;
         virtual void setSesionActual(int tel) = 0;
         virtual bool sesionActiva() = 0;
-        virtual void cerrarSesion() = 0;
+        virtual void cerrarSesion(IReloj* ireloj) = 0;
 };
 
 #endif
