@@ -10,7 +10,7 @@
 #include "IReloj.h"
 
 using namespace std;
-
+// Actualizar coso fecha ultima vez.
 int main(){
     Fabrica* fabrica = Fabrica::getInstancia();
     IAbrirApp* iabrirapp = fabrica->getIAbrirApp();
