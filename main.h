@@ -8,6 +8,7 @@
 
 //Interfaces
 #include "IAbrirApp.h"
+#include "IReloj.h"
 
 using namespace std;
 
@@ -15,8 +16,12 @@ void ingresarOpcion(int &opcion, int inicio, int fin);
 
 void menu();
 
-void menuAbrirApp(int &opc, IAbrirApp* interfaz, int nroSal);
+void menuAbrirApp(int &opc, IAbrirApp* interfaz, int nroSal, IReloj* ireloj);
 
-void menuAltaUsuario(int tel, IAbrirApp* interfaz);
+void menuAltaUsuario(int tel, IAbrirApp* interfaz, IReloj* r);
+
+void menuCambiarFecha(IReloj* r);
+
+void mostrarFecha(IReloj* r);
 
 #endif

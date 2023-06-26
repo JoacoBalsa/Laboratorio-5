@@ -21,8 +21,9 @@ class ControlUsuario: public IAbrirApp{
         static ControlUsuario* getInstancia();
         bool existeUsuario(int tel);
         void setSesionActual(int tel);
-        DtReloj altaUsuario(int telefono, string nombre, string url, string desc);
+        DtReloj altaUsuario(int telefono, string nombre, string url, string desc, IReloj* ireloj);
         bool sesionActiva();
+        void cerrarSesion();
         ~ControlUsuario();
 };
 #endif

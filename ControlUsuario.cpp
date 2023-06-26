@@ -10,9 +10,7 @@ ControlUsuario::ControlUsuario(){
 
 ControlUsuario* ControlUsuario::getInstancia(){
     if (instancia == NULL)
-    {
         instancia = new ControlUsuario();
-    }
     return instancia;
 }
 
@@ -27,16 +25,20 @@ void ControlUsuario::setSesionActual(int tel){
     sesionActual = usuarioActual;
 }
 
-DtReloj ControlUsuario::altaUsuario(int telefono, string nombre, string url, string desc){
-    Reloj* relojSis = Reloj::getInstancia();
-    Usuario* user = new Usuario(telefono, nombre, DtReloj(relojSis->getFecha(), relojSis->getHora()), desc, url, DtReloj(relojSis->getFecha(), relojSis->getHora()));
+DtReloj ControlUsuario::altaUsuario(int telefono, string nombre, string url, string desc, IReloj* ireloj){
+    DtReloj relojSis = ireloj->getFecha();
+    Usuario* user = new Usuario(telefono, nombre, relojSis, desc, url, relojSis);
     pair <int, Usuario*> p(telefono, user);
     usuarios.insert(p);
-    return user->getUltVez();
+    return user->getFecha();
 }
 
 bool ControlUsuario::sesionActiva(){
     return this->sesionActual != NULL;
+}
+
+void ControlUsuario::cerrarSesion(){
+    this->sesionActual = NULL;
 }
 
 ControlUsuario::~ControlUsuario(){} //Eliminar todos los usuarios de la coleccion liberando la memoria de cada uno
