@@ -1,10 +1,9 @@
 CC = Clases/
 CCI = Controles_Interfaces/
 CDT= DataTypes/
-CD = 
 
-main:	$(CDT)DtUsuario.o $(CDT)DtFecha.o $(CDT)DtHora.o $(CDT)DtReloj.o $(CDT)DtMensaje.o $(CDT)DtConversacion.o $(CDT)DtGrupo.o $(CDT)DtMenContacto.o $(CDT)DtMenImg.o $(CDT)DtMenSimple.o $(CDT)DtMenVid.o $(CDT)DtPrivada.o $(CDT)DtVisto.o $(CC)Usuario.o $(CC)Mensaje.o $(CC)MenImg.o $(CC)MenSimple.o $(CC)MenVid.o $(CC)MenContacto.o $(CC)Conversacion.o $(CD)Fabrica.o $(CCI)ControlUsuario.o $(CC)Reloj.o $(CCI)ControlReloj.o main.o 
-	g++ $(CDT)DtUsuario.o $(CDT)DtFecha.o $(CDT)DtHora.o $(CDT)DtReloj.o $(CDT)DtMensaje.o $(CDT)DtConversacion.o $(CDT)DtGrupo.o $(CDT)DtMenContacto.o $(CDT)DtMenImg.o $(CDT)DtMenSimple.o $(CDT)DtMenVid.o $(CDT)DtPrivada.o $(CDT)DtVisto.o $(CC)Usuario.o $(CC)Mensaje.o $(CC)MenImg.o $(CC)MenSimple.o $(CC)MenVid.o $(CC)MenContacto.o $(CC)Conversacion.o $(CD)Fabrica.o $(CCI)ControlUsuario.o $(CC)Reloj.o $(CCI)ControlReloj.o main.o  -o sistema
+main:	$(CDT)DtUsuario.o $(CDT)DtFecha.o $(CDT)DtHora.o $(CDT)DtReloj.o $(CDT)DtMensaje.o $(CDT)DtConversacion.o $(CDT)DtGrupo.o $(CDT)DtMenContacto.o $(CDT)DtMenImg.o $(CDT)DtMenSimple.o $(CDT)DtMenVid.o $(CDT)DtPrivada.o $(CDT)DtVisto.o $(CC)Usuario.o $(CC)Mensaje.o $(CC)MenImg.o $(CC)MenSimple.o $(CC)MenVid.o $(CC)MenContacto.o $(CC)Conversacion.o Fabrica.o $(CCI)ControlUsuario.o $(CC)Reloj.o $(CCI)ControlReloj.o main.o 
+	g++ $(CDT)DtUsuario.o $(CDT)DtFecha.o $(CDT)DtHora.o $(CDT)DtReloj.o $(CDT)DtMensaje.o $(CDT)DtConversacion.o $(CDT)DtGrupo.o $(CDT)DtMenContacto.o $(CDT)DtMenImg.o $(CDT)DtMenSimple.o $(CDT)DtMenVid.o $(CDT)DtPrivada.o $(CDT)DtVisto.o $(CC)Usuario.o $(CC)Mensaje.o $(CC)MenImg.o $(CC)MenSimple.o $(CC)MenVid.o $(CC)MenContacto.o $(CC)Conversacion.o Fabrica.o $(CCI)ControlUsuario.o $(CC)Reloj.o $(CCI)ControlReloj.o main.o  -o sistema
 
 $(CDT)DtUsuario.o: $(CDT)DtUsuario.cpp
 
@@ -46,7 +45,7 @@ $(CC)MenContacto.o: $(CC)MenContacto.cpp
 
 $(CC)Conversacion.o: $(CC)Conversacion.cpp
 
-$(CD)Fabrica.o: Fabrica.cpp
+Fabrica.o: Fabrica.cpp
 
 $(CCI)ControlUsuario.o: $(CCI)ControlUsuario.cpp
 
@@ -58,4 +57,7 @@ main.o: main.cpp
 
 clean:
 	rm -f *.o sistema
+	rm -f Clases/*.o sistema
+	rm -f Controles_Interfaces/*.o sistema
+	rm -f DataTypes/*.o sistema
 	clear
