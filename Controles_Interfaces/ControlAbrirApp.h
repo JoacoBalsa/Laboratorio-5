@@ -16,7 +16,6 @@ class ControlAbrirApp: public IAbrirApp{
     public:
         ControlAbrirApp();
         DtReloj altaUsuario(int telefono, string nombre, string url, string desc, IReloj* ireloj);
-        ~ControlAbrirApp();
         bool existeUsuario(int tel);
         void setSesionActual(int tel);
         bool sesionActiva();

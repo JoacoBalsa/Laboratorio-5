@@ -26,6 +26,12 @@ int main(){
                     else
                         cout<<"Debe iniciar sesion antes."<<endl;
                 break;
+                case 6:
+                    menuCambiarFecha(ireloj);
+                break;
+                case 7:
+                    mostrarFecha(ireloj);
+                break;
                 case 12:            //Caso Cerrar App
                     if(iabrirapp->sesionActiva()){
                         iabrirapp->cerrarSesion(ireloj);
@@ -33,12 +39,6 @@ int main(){
                     }
                     else
                         cout<<"Debe iniciar sesion antes."<<endl;
-                break;
-                case 6:
-                    menuCambiarFecha(ireloj);
-                break;
-                case 7:
-                    mostrarFecha(ireloj);
                 break;
             }
             menu();
@@ -59,7 +59,7 @@ void menu(){
     cout<<"•9 Alta grupo"<<endl;                        //(opcional)
     cout<<"•10 Agregar participantes a un grupo"<<endl;  //(opcional)
     cout<<"•11 Modificar usuario"<<endl;                  //(opcional)
-    cout<<"•12 CerrarApp"<<endl;                          //(opcional)
+    cout<<"•12 CerrarApp"<<endl;                          
     cout<<"•13 Cargar datos de prueba"<<endl;
     cout<<"•14 Salir"<<endl; 
     cout<<"-------------------------------------"<<endl;

@@ -23,7 +23,6 @@ class ManejadorUsuario{
         bool hayActiva();
         bool existeUser(int tel);
         void setActual(int tel);
-
         void cerrarSesion(IReloj* ireloj);
         void elegirContacto(int tel);
         void listarConver(int tel);
