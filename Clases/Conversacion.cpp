@@ -1,4 +1,5 @@
 #include "Conversacion.h"
+#include "Usuario.h"
 
 using namespace std;
 
@@ -19,34 +20,31 @@ bool Conversacion::getActiva(){
 void Conversacion::setActiva(bool a){
     this->activa = a;
 };
-DtMensaje Conversacion::getMensaje(int id){
+Mensaje* Conversacion::getMensaje(int id){
     if(this->mensajes.find(id) != this->mensajes.end())
         return this->mensajes[id];
     else
         throw invalid_argument("No se ha mandado ese mensaje en esta conversacion.\n");
 };
-void Conversacion::setMensaje(int id, DtMensaje men){
-    if(this->mensajes.find(id) == this->mensajes.end())
+void Conversacion::setMensaje(int id, Mensaje* men){
+    if(this->mensajes.find(id) == this->mensajes.end()){
+        //pair <int, Mensaje*> p(id, men);
         this->mensajes[id] = men;
-    else
+    }else
         throw invalid_argument("Ya se ha mandado ese mensaje en esta conversacion.\n");
 };
 
-DtUsuario Conversacion::getIntegrante(int tel){
+Usuario* Conversacion::getIntegrante(int tel){
     if(this->integrantes.find(tel) != this->integrantes.end())
         return this->integrantes[tel];
     else
         throw invalid_argument("Ese usuario no es integrante de esta conversacion.\n");
 };
-void Conversacion::setIntegrante(int tel, DtUsuario integrante){
+void Conversacion::setIntegrante(int tel, Usuario* integrante){
     if(this->integrantes.find(tel) != this->integrantes.end())
         throw invalid_argument("Ese usuario ya forma parte de esta conversacion.\n");
     else
         this->integrantes[tel] = integrante;
 };
-
-map<int, DtUsuario> Conversacion::getIntegrantes(){ //<------------------------------------------------aca ta el problemaaaaa
-    return this->integrantes;
-}
 
 Conversacion::~Conversacion(){};

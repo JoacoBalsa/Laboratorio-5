@@ -4,17 +4,17 @@
 #include "../Clases/Grupo.h"
 
 void ControlCasosMensaje::listarConver(){
-    ManejadorUsuario *mU = mU->getInstancia();
+    /*ManejadorUsuario *mU = mU->getInstancia();
     ManejadorConversacion *mC = mC->getInstancia();
-    map<int,DtConversacion*> activas = mU->getActivas();
-    map<int, DtConversacion*> archivadas = mU->getArchivadas();
-    DtConversacion* conve;
+    map<int,Conversacion*> activas = mU->getActivas();
+    map<int, Conversacion*> archivadas = mU->getArchivadas();
+    Conversacion* conve;
     DtUsuario receptor;
 
     if(activas.size() > 0){
         for(auto iter = activas.begin(); iter != activas.end(); iter++){
             try{
-                DtGrupo* dtg = static_cast<DtGrupo*>(iter->second);
+                Grupo* dtg = static_cast<Grupo*>(iter->second);
                 cout << "Nombre del grupo: " << dtg->getNombre() << endl;
             }catch(bad_cast){
                 receptor = mC->getReceptor(mU->getUsuario()->getTel());
@@ -25,7 +25,8 @@ void ControlCasosMensaje::listarConver(){
     }else
         cout << "No hay conversaciones activas" << endl;
     int cantArch = archivadas.size();
-    cout << "Archivadas: " << cantArch << endl;
+    cout << "Archivadas: " << cantArch << endl;*/
+    
 } 
 
 void ControlCasosMensaje::elegirContacto(){

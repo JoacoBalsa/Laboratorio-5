@@ -15,7 +15,6 @@ class IAbrirApp{
         virtual void setSesionActual(int tel) = 0;
         virtual bool sesionActiva() = 0;
         virtual void cerrarSesion(IReloj* ireloj) = 0;
-    
 };
 
 #endif

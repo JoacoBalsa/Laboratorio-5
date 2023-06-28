@@ -3,16 +3,13 @@
 #include <stdio.h>
 #include <iostream>
 #include <string.h>
-#include "../DataTypes/DtMensaje.h"
 #include "../DataTypes/DtReloj.h"
 #include <map>
-#include <set>
-#include "../DataTypes/DtConversacion.h"
-#include "../DataTypes/DtUsuario.h"
+#include "../Clases/Conversacion.h"
 
 using namespace std;
 
-//FALTAN LOS PSEUDOATRIBUTOS
+class Conversacion;
 
 class Usuario{
     private:
@@ -24,10 +21,10 @@ class Usuario{
         string imgUrl;        
         DtReloj ultVez;
         //Pseudoatributos
-        map<int, DtUsuario> contactos;
-        map<int, DtMensaje> menRec;
-        map<int, DtConversacion*> activas;
-        map<int, DtConversacion*> archivadas;
+        map<int, Usuario*> contactos;
+        map<int, Mensaje*> menRec;
+        map<int, Conversacion*> activas;
+        map<int, Conversacion*> archivadas;
     public:
         Usuario();
         Usuario (int tel, string nom, DtReloj fec, string bio, string img, DtReloj ultvez);
@@ -43,16 +40,17 @@ class Usuario{
         void setImg(string url);
         DtReloj getUltVez();
         void setUltVez(DtReloj fecha);
-        DtUsuario getContacto(int tel);
-        void setContacto(int tel, DtUsuario cont);
-        DtMensaje getMenRec(int id);
-        void setMenRec(int id, DtMensaje men);
-        map<int, DtConversacion*> getActivas();
-        void setActiva(int id, DtConversacion* conve);
-        map<int, DtConversacion*> getArchivadas();
-        void setArchivada(int id, DtConversacion* conve);
+        Usuario* getContacto(int tel);
+        void setContacto(int tel, Usuario* cont);
+        Mensaje* getMenRec(int id);
+        void setMenRec(int id, Mensaje* men);
+        map<int, Conversacion*> getActivas();
+        void setActiva(int id, Conversacion* conve);
+        map<int, Conversacion*> getArchivadas();
+        void setArchivada(int id, Conversacion* conve);
         bool hayActivas();
         bool hayArchivadas();
+
         ~Usuario();
 };
 

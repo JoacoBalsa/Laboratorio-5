@@ -15,7 +15,7 @@ class ManejadorConversacion {
         ManejadorConversacion();
     public:
         ManejadorConversacion* getInstancia();
-        void setConversacionActual();
+        void setConversacionActual(Conversacion* conver);
         DtUsuario getReceptor(int emisor);
 };
 

@@ -25,8 +25,8 @@ class ManejadorUsuario{
         void setActual(int tel);
         void cerrarSesion(IReloj* ireloj);
         Usuario* getUsuario();
-        map<int, DtConversacion*> getActivas();
-        map<int, DtConversacion*> getArchivadas();
+        map<int, Conversacion*> getActivas();
+        map<int, Conversacion*> getArchivadas();
         ~ManejadorUsuario();
 };
 #endif

@@ -42,12 +42,12 @@ Usuario* ManejadorUsuario::getUsuario(){
     return this->sesionActual;
 }
 
-map<int, DtConversacion*> ManejadorUsuario::getActivas(){
+map<int, Conversacion*> ManejadorUsuario::getActivas(){
     Usuario* usuarioActual = this->sesionActual;
     return usuarioActual->getActivas();
 }
 
-map<int, DtConversacion*> ManejadorUsuario::getArchivadas(){
+map<int, Conversacion*> ManejadorUsuario::getArchivadas(){
     Usuario* usuarioActual = this->sesionActual;
     return usuarioActual->getArchivadas();
 }

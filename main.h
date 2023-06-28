@@ -9,6 +9,7 @@
 //Interfaces
 #include "Controles_Interfaces/IAbrirApp.h"
 #include "Controles_Interfaces/IReloj.h"
+#include "Controles_Interfaces/IControlAgregarContacto.h"
 
 using namespace std;
 
@@ -27,5 +28,7 @@ void mostrarFecha(IReloj* r);
 void menuEnviarMensaje();
 
 void elegirTipoConve();
+
+void menuAgregarContactos(IControlAgregarContacto* icAgregarCon);
 
 #endif

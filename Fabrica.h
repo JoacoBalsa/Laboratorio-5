@@ -3,6 +3,7 @@
 #include "Controles_Interfaces/IAbrirApp.h"
 #include "Controles_Interfaces/IReloj.h"
 #include "Controles_Interfaces/ICasosMensaje.h"
+#include "Controles_Interfaces/IControlAgregarContacto.h"
 
 class Fabrica{
     private:
@@ -12,6 +13,7 @@ class Fabrica{
         static Fabrica* getInstancia();
         IAbrirApp* getIAbrirApp();
         IReloj* getIReloj();
+        IControlAgregarContacto* getICAgregarCon();
         ~Fabrica();
 };
 #endif

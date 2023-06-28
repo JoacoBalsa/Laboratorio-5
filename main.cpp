@@ -6,6 +6,7 @@ int main(){
     Fabrica* fabrica = Fabrica::getInstancia();
     IAbrirApp* iabrirapp = fabrica->getIAbrirApp();
     IReloj* ireloj = fabrica->getIReloj();
+    IControlAgregarContacto* icAgregarCon = fabrica->getICAgregarCon();
     int nroSalida = 14, opc;
     
     menu();
@@ -32,6 +33,13 @@ int main(){
                 case 7:
                     mostrarFecha(ireloj);
                 break;
+                case 8:
+                    if(iabrirapp->sesionActiva()){
+                        menuAgregarContactos(icAgregarCon);
+                    }
+                    else
+                        cout<<"Debe iniciar sesion antes."<<endl;
+                break;  
                 case 12:            //Caso Cerrar App
                     if(iabrirapp->sesionActiva()){
                         iabrirapp->cerrarSesion(ireloj);
@@ -61,7 +69,7 @@ void menu(){
     cout<<"•11 Modificar usuario"<<endl;                  //(opcional)
     cout<<"•12 CerrarApp"<<endl;                          
     cout<<"•13 Cargar datos de prueba"<<endl;
-    cout<<"•14 Salir 🙏🙏🙏🙏"<<endl; 
+    cout<<"•14 Salir"<<endl; 
     cout<<"-------------------------------------"<<endl;
 }
 
@@ -192,4 +200,9 @@ void elegirTipoConve(){
 
         break;
     }
+}
+
+void menuAgregarContactos(IControlAgregarContacto* icAgregarCon){
+    cout <<"---------------- Agregar Contactos ----------------"<< endl;
+    icAgregarCon->listarContactos();
 }

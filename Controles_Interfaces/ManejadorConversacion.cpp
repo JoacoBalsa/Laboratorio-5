@@ -12,11 +12,10 @@ ManejadorConversacion* ManejadorConversacion::getInstancia(){
     return instancia;
 }
 
+void ManejadorConversacion::setConversacionActual(Conversacion* conver){
+    this->conversacionActual = conver;
+}
+
 /*DtUsuario ManejadorConversacion::getReceptor(int emisor){
-    Conversacion* conveActual = this->conversacionActual;
-    map<int, DtUsuario> integrantes = conveActual->getIntegrantes();
-    for(auto iter = integrantes.begin(); iter != integrantes.end(); iter++){
-        if(iter->second.getTel() != emisor)
-            return iter->second;
-    }
+    
 }*/

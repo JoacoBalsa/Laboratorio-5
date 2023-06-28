@@ -4,8 +4,10 @@
 #include <iostream>
 #include <string.h>
 #include <map>
-#include "../DataTypes/DtMensaje.h"
-#include "../DataTypes/DtUsuario.h"
+#include "Mensaje.h"
+#include "Usuario.h"
+
+class Usuario;
 
 using namespace std;
 
@@ -15,8 +17,8 @@ class Conversacion{
         int id;
         bool activa;
         //Pseudoatributos
-        map<int, DtMensaje> mensajes;
-        map<int, DtUsuario> integrantes;
+        map<int, Mensaje*> mensajes;
+        map<int, Usuario*> integrantes;
     public:
         Conversacion();
         Conversacion(int id, bool activa);
@@ -24,11 +26,10 @@ class Conversacion{
         void setId(int id);
         bool getActiva();
         void setActiva(bool a);
-        DtMensaje getMensaje(int id);
-        void setMensaje(int id, DtMensaje men);
-        DtUsuario getIntegrante(int tel);
-        void setIntegrante(int tel, DtUsuario integrante);
-        map<int, DtUsuario> getIntegrantes();
+        Mensaje* getMensaje(int id);
+        void setMensaje(int id, Mensaje* men);
+        Usuario* getIntegrante(int tel);
+        void setIntegrante(int tel, Usuario* integrante);
         ~Conversacion();
 };
 
