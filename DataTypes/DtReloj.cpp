@@ -7,6 +7,12 @@ DtReloj::DtReloj(Fecha f, Hora h){
     this->hora = h;
 };
 
+DtReloj::DtReloj(const DtReloj& r){
+    this->fecha = r.fecha;
+    this->hora = r.hora;
+};
+
+
 Fecha DtReloj::getFecha(){
     return this->fecha;
 };

@@ -13,6 +13,7 @@ class DtReloj{
     public:
         DtReloj();
         DtReloj(Fecha f, Hora h);
+        DtReloj(const DtReloj& r);
         Fecha getFecha();
         void setFecha(Fecha f);
         Hora getHora();

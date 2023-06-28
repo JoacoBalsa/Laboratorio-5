@@ -203,6 +203,7 @@ void elegirTipoConve(){
 }
 
 void menuAgregarContactos(IControlAgregarContacto* icAgregarCon){
-    cout <<"---------------- Agregar Contactos ----------------"<< endl;
+    cout << "---------------- Agregar Contactos ----------------" << endl;
+    cout <<"Contactos:" << endl;
     icAgregarCon->listarContactos();
 }

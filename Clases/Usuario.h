@@ -3,9 +3,10 @@
 #include <stdio.h>
 #include <iostream>
 #include <string.h>
-#include "../DataTypes/DtReloj.h"
+#include <list>
 #include <map>
 #include "../Clases/Conversacion.h"
+#include "../DataTypes/DtReloj.h"
 
 using namespace std;
 
@@ -40,6 +41,7 @@ class Usuario{
         void setImg(string url);
         DtReloj getUltVez();
         void setUltVez(DtReloj fecha);
+        void getContactos(list<DtUsuario>& cont);
         Usuario* getContacto(int tel);
         void setContacto(int tel, Usuario* cont);
         Mensaje* getMenRec(int id);

@@ -52,4 +52,8 @@ map<int, Conversacion*> ManejadorUsuario::getArchivadas(){
     return usuarioActual->getArchivadas();
 }
 
+void ManejadorUsuario::getContactos(list<DtUsuario>& cont) {
+    this->sesionActual->getContactos(cont);
+}
+
 ManejadorUsuario::~ManejadorUsuario(){} //Eliminar todos los usuarios de la coleccion liberando la memoria de cada uno

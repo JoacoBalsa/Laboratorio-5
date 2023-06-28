@@ -11,26 +11,23 @@ class DtUsuario{
     private:
         int telefono;
         string nombre;
-        Fecha fecReg;
+        DtReloj fecReg;
         string biografia;
-        string imgUrl;
-        DtReloj registrado;        
+        string imgUrl;        
         DtReloj ultVez;            
     public:
         DtUsuario();
-        DtUsuario (int tel, string nom, Fecha fec, string bio, string img, DtReloj ultvez);
+        DtUsuario (int tel, string nom, DtReloj fec, string bio, string img, DtReloj ultvez);
         int getTel();
         void setTel(int tel);
         string getNombre();
         void setNombre(string n);
-        Fecha getFecha();
-        void setFecha(Fecha f);
+        DtReloj getFecha();
+        void setFecha(DtReloj f);
         string getBio();
         void setBio(string bio);
         string getImg();
         void setImg(string url);
-        DtReloj getReg();
-        void setReg(DtReloj reg);
         DtReloj getUltVez();
         void setUltVez(DtReloj fecha);
         ~DtUsuario();

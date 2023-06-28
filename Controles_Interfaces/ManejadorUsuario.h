@@ -4,6 +4,7 @@
 #include <string.h>
 #include <iostream>
 #include <map>
+#include <list>
 #include "../Clases/Usuario.h"
 #include "../Clases/Reloj.h"
 #include "../DataTypes/DtReloj.h"
@@ -27,6 +28,7 @@ class ManejadorUsuario{
         Usuario* getUsuario();
         map<int, Conversacion*> getActivas();
         map<int, Conversacion*> getArchivadas();
+        void getContactos(list<DtUsuario>& cont);
         ~ManejadorUsuario();
 };
 #endif

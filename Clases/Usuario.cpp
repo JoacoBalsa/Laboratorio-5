@@ -61,6 +61,12 @@ void Usuario::setUltVez(DtReloj fecha){
     this->ultVez = fecha;
 };
 
+void Usuario::getContactos(list<DtUsuario>& cont){
+    for(auto itr = this->contactos.begin(); itr != this->contactos.end(); itr++){
+        cont.emplace_back(itr->second->getTel(), itr->second->getNombre(), itr->second->getFecha(), itr->second->getBio(), itr->second->getImg(), itr->second->getUltVez());
+    }
+}
+
 Usuario* Usuario::getContacto(int tel){    
     if(this->contactos.find(tel) != this->contactos.end())
         return this->contactos[tel];
