@@ -38,4 +38,18 @@ void ManejadorUsuario::cerrarSesion(IReloj* ireloj){
     this->sesionActual = NULL; //Cierra la sesion actual
 }
 
+Usuario* ManejadorUsuario::getUsuario(){
+    return this->sesionActual;
+}
+
+map<int, DtConversacion*> ManejadorUsuario::getActivas(){
+    Usuario* usuarioActual = this->sesionActual;
+    return usuarioActual->getActivas();
+}
+
+map<int, DtConversacion*> ManejadorUsuario::getArchivadas(){
+    Usuario* usuarioActual = this->sesionActual;
+    return usuarioActual->getArchivadas();
+}
+
 ManejadorUsuario::~ManejadorUsuario(){} //Eliminar todos los usuarios de la coleccion liberando la memoria de cada uno

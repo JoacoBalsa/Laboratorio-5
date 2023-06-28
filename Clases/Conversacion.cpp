@@ -17,7 +17,7 @@ bool Conversacion::getActiva(){
     return this->activa;
 };
 void Conversacion::setActiva(bool a){
-    this->activa = activa;
+    this->activa = a;
 };
 DtMensaje Conversacion::getMensaje(int id){
     if(this->mensajes.find(id) != this->mensajes.end())
@@ -44,5 +44,9 @@ void Conversacion::setIntegrante(int tel, DtUsuario integrante){
     else
         this->integrantes[tel] = integrante;
 };
+
+map<int, DtUsuario> Conversacion::getIntegrantes(){ //<------------------------------------------------aca ta el problemaaaaa
+    return this->integrantes;
+}
 
 Conversacion::~Conversacion(){};

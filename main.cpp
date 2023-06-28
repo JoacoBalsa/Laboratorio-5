@@ -1,7 +1,7 @@
 #include "main.h"
 
 using namespace std;
-// Actualizar coso fecha ultima vez.
+
 int main(){
     Fabrica* fabrica = Fabrica::getInstancia();
     IAbrirApp* iabrirapp = fabrica->getIAbrirApp();
@@ -61,7 +61,7 @@ void menu(){
     cout<<"•11 Modificar usuario"<<endl;                  //(opcional)
     cout<<"•12 CerrarApp"<<endl;                          
     cout<<"•13 Cargar datos de prueba"<<endl;
-    cout<<"•14 Salir"<<endl; 
+    cout<<"•14 Salir 🙏🙏🙏🙏"<<endl; 
     cout<<"-------------------------------------"<<endl;
 }
 
@@ -169,4 +169,27 @@ void mostrarFecha(IReloj* r){
     cout <<"La fecha y hora del sistema es: ";
     cout << aux.getFecha().getDia() << "/" << aux.getFecha().getMes() << "/" << aux.getFecha().getAnio();
     cout << " " << aux.getHora().getHora() << ":" << aux.getHora().getMin() << endl;
+}
+
+void menuEnviarMensaje(){
+    cout <<"---------------- Enviar Mensaje ----------------"<< endl;
+}
+
+void elegirTipoConve(){
+    int tipo;
+    cout << "•1 Elegir conversacion activa" << endl;
+    cout << "•2 Elegir conversacion archivada" << endl;
+    cout << "•3 Iniciar conversacion con contacto" << endl;
+    ingresarOpcion(tipo, 1, 3);
+    switch (tipo){
+        case 1:
+            
+        break;
+        case 2:
+
+        break;
+        case 3:
+
+        break;
+    }
 }

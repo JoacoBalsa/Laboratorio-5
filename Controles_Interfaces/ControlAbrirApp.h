@@ -7,7 +7,7 @@
 #include "../Clases/Usuario.h"
 #include "../Clases/Reloj.h"
 #include "../DataTypes/DtReloj.h"
-#include "IMensaje.h"
+#include "ICasosMensaje.h"
 #include "ManejadorUsuario.h"
 
 using namespace std;

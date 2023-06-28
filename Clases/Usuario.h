@@ -26,7 +26,8 @@ class Usuario{
         //Pseudoatributos
         map<int, DtUsuario> contactos;
         map<int, DtMensaje> menRec;
-        map<int, DtConversacion> chats;
+        map<int, DtConversacion*> activas;
+        map<int, DtConversacion*> archivadas;
     public:
         Usuario();
         Usuario (int tel, string nom, DtReloj fec, string bio, string img, DtReloj ultvez);
@@ -46,8 +47,12 @@ class Usuario{
         void setContacto(int tel, DtUsuario cont);
         DtMensaje getMenRec(int id);
         void setMenRec(int id, DtMensaje men);
-        DtConversacion getChat(int id);
-        void setChat(int id, DtConversacion conve);
+        map<int, DtConversacion*> getActivas();
+        void setActiva(int id, DtConversacion* conve);
+        map<int, DtConversacion*> getArchivadas();
+        void setArchivada(int id, DtConversacion* conve);
+        bool hayActivas();
+        bool hayArchivadas();
         ~Usuario();
 };
 

@@ -2,7 +2,7 @@
 #define FABRICA_H
 #include "Controles_Interfaces/IAbrirApp.h"
 #include "Controles_Interfaces/IReloj.h"
-#include "Controles_Interfaces/IMensaje.h"
+#include "Controles_Interfaces/ICasosMensaje.h"
 
 class Fabrica{
     private:

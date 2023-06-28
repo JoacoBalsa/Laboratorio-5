@@ -28,6 +28,7 @@ class Conversacion{
         void setMensaje(int id, DtMensaje men);
         DtUsuario getIntegrante(int tel);
         void setIntegrante(int tel, DtUsuario integrante);
+        map<int, DtUsuario> getIntegrantes();
         ~Conversacion();
 };
 

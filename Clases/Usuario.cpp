@@ -87,18 +87,35 @@ void Usuario::setMenRec(int id, DtMensaje men){
         this->menRec[id] = men;
 };
 
-DtConversacion Usuario::getChat(int id){
-    if(this->chats.find(id) != this->chats.end())
-        return this->chats[id];
-    else
-        throw invalid_argument("Este usuario no forma parte de esa conversacion.\n");
+map<int, DtConversacion*> Usuario::getActivas(){
+    return this->activas;
 };
 
-void Usuario::setChat(int id, DtConversacion conve){
-    if(this->chats.find(id) != this->chats.end())
+map<int, DtConversacion*> Usuario::getArchivadas(){
+    return this->archivadas;
+};
+
+
+void Usuario::setActiva(int id, DtConversacion* conve){
+    if(this->activas.find(id) != this->activas.end())
         throw invalid_argument("Este usuario ya forma parte de esa conversacion.\n"); 
     else
-        this->chats[id] = conve;
+        this->activas[id] = conve;
 };
+
+void Usuario::setArchivada(int id, DtConversacion* conve){
+    if(this->archivadas.find(id) != this->archivadas.end())
+        throw invalid_argument("Este usuario ya forma parte de esa conversacion.\n"); 
+    else
+        this->archivadas[id] = conve;
+};
+
+bool Usuario::hayActivas(){
+    return this->activas.size() > 0;
+}
+
+bool Usuario::hayArchivadas(){
+    return this->archivadas.size() > 0;
+}
 
 Usuario::~Usuario(){};

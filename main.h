@@ -24,4 +24,8 @@ void menuCambiarFecha(IReloj* r);
 
 void mostrarFecha(IReloj* r);
 
+void menuEnviarMensaje();
+
+void elegirTipoConve();
+
 #endif

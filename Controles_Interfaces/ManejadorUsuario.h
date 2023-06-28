@@ -7,7 +7,7 @@
 #include "../Clases/Usuario.h"
 #include "../Clases/Reloj.h"
 #include "../DataTypes/DtReloj.h"
-#include "IMensaje.h"
+#include "ICasosMensaje.h"
 
 using namespace std;
 
@@ -24,8 +24,9 @@ class ManejadorUsuario{
         bool existeUser(int tel);
         void setActual(int tel);
         void cerrarSesion(IReloj* ireloj);
-        void elegirContacto(int tel);
-        void listarConver(int tel);
+        Usuario* getUsuario();
+        map<int, DtConversacion*> getActivas();
+        map<int, DtConversacion*> getArchivadas();
         ~ManejadorUsuario();
 };
 #endif
