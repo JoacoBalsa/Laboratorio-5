@@ -29,6 +29,8 @@ class ManejadorUsuario{
         map<int, Conversacion*> getActivas();
         map<int, Conversacion*> getArchivadas();
         void getContactos(list<DtUsuario>& cont);
+        Usuario* getUser(int tel);
+        void setContacto(int tel);
         ~ManejadorUsuario();
 };
 #endif

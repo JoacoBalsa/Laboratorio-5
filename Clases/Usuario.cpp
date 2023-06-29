@@ -65,7 +65,7 @@ void Usuario::getContactos(list<DtUsuario>& cont){
     for(auto itr = this->contactos.begin(); itr != this->contactos.end(); itr++){
         cont.emplace_back(itr->second->getTel(), itr->second->getNombre(), itr->second->getFecha(), itr->second->getBio(), itr->second->getImg(), itr->second->getUltVez());
     }
-}
+};
 
 Usuario* Usuario::getContacto(int tel){    
     if(this->contactos.find(tel) != this->contactos.end())
@@ -74,10 +74,7 @@ Usuario* Usuario::getContacto(int tel){
        throw invalid_argument("No existe ningun contacto con ese telefono agendado.\n");
 };
 void Usuario::setContacto(int tel, Usuario* cont){
-    if(this->contactos.find(tel) != this->contactos.end())
-        throw invalid_argument("Contacto ya agendado.\n");
-    else   
-       this->contactos[tel] = cont;
+    this->contactos[tel] = cont;
 };
 
 Mensaje* Usuario::getMenRec(int id){

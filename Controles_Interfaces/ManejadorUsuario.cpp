@@ -56,4 +56,12 @@ void ManejadorUsuario::getContactos(list<DtUsuario>& cont) {
     this->sesionActual->getContactos(cont);
 }
 
+void ManejadorUsuario::setContacto(int tel){
+    this->sesionActual->setContacto(tel, this->usuarios.find(tel)->second);
+}
+
+Usuario* ManejadorUsuario::getUser(int tel){
+    return this->usuarios.find(tel)->second;
+}
+
 ManejadorUsuario::~ManejadorUsuario(){} //Eliminar todos los usuarios de la coleccion liberando la memoria de cada uno
