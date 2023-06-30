@@ -71,7 +71,7 @@ Usuario* Usuario::getContacto(int tel){
     if(this->contactos.find(tel) != this->contactos.end())
         return this->contactos[tel];
     else
-       throw invalid_argument("No existe ningun contacto con ese telefono agendado.\n");
+       return NULL;
 };
 void Usuario::setContacto(int tel, Usuario* cont){
     this->contactos[tel] = cont;
@@ -91,14 +91,21 @@ void Usuario::setMenRec(int id, Mensaje* men){
         this->menRec[id] = men;
 };
 
-map<int, Conversacion*> Usuario::getActivas(){
-    return this->activas;
-};
+void Usuario::getActivas(list<DtConversacion>& Activas){
+    for(auto itr = this->activas.begin(); itr != this->activas.end(); itr++){
+        Activas.emplace_back(itr->second->getId(), itr->second->getActiva());
+    }
+}
 
-map<int, Conversacion*> Usuario::getArchivadas(){
-    return this->archivadas;
-};
+void Usuario::getArchivadas(list<DtConversacion>& Archivadas){
+    for(auto itr = this->archivadas.begin(); itr != this->archivadas.end(); itr++){
+        Archivadas.emplace_back(itr->second->getId(), itr->second->getActiva());
+    }
+}
 
+int Usuario::getCantArch(){
+    return this->archivadas.size();
+}
 
 void Usuario::setActiva(int id, Conversacion* conve){
     if(this->activas.find(id) != this->activas.end())
@@ -120,6 +127,20 @@ bool Usuario::hayActivas(){
 
 bool Usuario::hayArchivadas(){
     return this->archivadas.size() > 0;
+}
+
+Conversacion* Usuario::getActiva(int id){
+    if(this->activas.find(id) != this->activas.end())
+        return this->activas[id];
+    else    
+        return NULL;
+}
+
+Conversacion* Usuario::getArchivada(int id){
+    if(this->archivadas.find(id) != this->archivadas.end())
+        return this->archivadas[id];
+    else    
+        return NULL;
 }
 
 Usuario::~Usuario(){};

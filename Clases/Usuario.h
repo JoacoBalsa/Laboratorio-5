@@ -7,6 +7,7 @@
 #include <map>
 #include "../Clases/Conversacion.h"
 #include "../DataTypes/DtReloj.h"
+#include "../DataTypes/DtConversacion.h"
 
 using namespace std;
 
@@ -46,13 +47,15 @@ class Usuario{
         void setContacto(int tel, Usuario* cont);
         Mensaje* getMenRec(int id);
         void setMenRec(int id, Mensaje* men);
-        map<int, Conversacion*> getActivas();
+        Conversacion* getActiva(int id);
+        Conversacion* getArchivada(int id);
         void setActiva(int id, Conversacion* conve);
-        map<int, Conversacion*> getArchivadas();
+        void getActivas(list<DtConversacion>& Activas);
+        void getArchivadas(list<DtConversacion>& Archivadas);
+        int getCantArch();
         void setArchivada(int id, Conversacion* conve);
         bool hayActivas();
         bool hayArchivadas();
-
         ~Usuario();
 };
 

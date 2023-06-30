@@ -11,12 +11,15 @@
 class ManejadorConversacion {
     private:
         static ManejadorConversacion* instancia; 
-        Conversacion* conversacionActual;            
+        Conversacion* conversacionActual;     
+        map<int, Conversacion*> conversaciones;       
         ManejadorConversacion();
     public:
         ManejadorConversacion* getInstancia();
-        void setConversacionActual(Conversacion* conver);
-        DtUsuario getReceptor(int emisor);
+        void setConversacionActual(int id);
+        void addConver(Conversacion* conver);
+        DtUsuario getReceptor(Usuario* user, int id);
+        Conversacion* crearConversacion(Usuario* emisor, Usuario* receptor);
 };
 
 #endif

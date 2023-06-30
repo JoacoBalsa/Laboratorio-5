@@ -9,6 +9,7 @@
 #include "../DataTypes/DtReloj.h"
 #include "ICasosMensaje.h"
 #include "ManejadorUsuario.h"
+#include "ControlAgregarContacto.h"
 
 using namespace std;
 
@@ -20,5 +21,6 @@ class ControlAbrirApp: public IAbrirApp{
         void setSesionActual(int tel);
         bool sesionActiva();
         void cerrarSesion(IReloj* ireloj);
+        void cargarUsuarios(IReloj* ireloj);
 };
 #endif

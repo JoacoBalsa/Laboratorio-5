@@ -47,4 +47,20 @@ void Conversacion::setIntegrante(int tel, Usuario* integrante){
         this->integrantes[tel] = integrante;
 };
 
+DtUsuario Conversacion::getReceptor(int emisor){
+    DtUsuario ret;
+    for(auto itr = this->integrantes.begin(); itr != this->integrantes.end(); itr++){
+        if(itr->first != emisor){
+            ret.setTel(itr->first);
+            ret.setNombre(itr->second->getNombre());
+            ret.setBio(itr->second->getBio());
+            ret.setImg(itr->second->getImg());
+            ret.setFecha(itr->second->getFecha());
+            ret.setUltVez(itr->second->getUltVez());
+        }
+    }
+    return ret;
+}
+
+
 Conversacion::~Conversacion(){};

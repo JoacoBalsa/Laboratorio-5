@@ -2,7 +2,6 @@
 #define CONTROLAGREGARCONTACTOS_H
 #include "IControlAgregarContacto.h"
 #include "ManejadorUsuario.h"
-#include "string.h"
 
 class ControlAgregarContacto : public IControlAgregarContacto{
     public:

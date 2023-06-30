@@ -2,11 +2,13 @@
 
 using namespace std;
 
+Fabrica* fabrica = Fabrica::getInstancia();
+IAbrirApp* iabrirapp = fabrica->getIAbrirApp();
+IReloj* ireloj = fabrica->getIReloj();
+IControlAgregarContacto* icAgregarCon = fabrica->getICAgregarCon();
+ICasosMensaje* icMensaje = fabrica->getICasosMensaje();
+
 int main(){
-    Fabrica* fabrica = Fabrica::getInstancia();
-    IAbrirApp* iabrirapp = fabrica->getIAbrirApp();
-    IReloj* ireloj = fabrica->getIReloj();
-    IControlAgregarContacto* icAgregarCon = fabrica->getICAgregarCon();
     int nroSalida = 14, opc;
     
     menu();
@@ -16,30 +18,30 @@ int main(){
             {
                 case 1:             //Caso Abrir App
                     if(!iabrirapp->sesionActiva()) 
-                        menuAbrirApp(opc, iabrirapp, nroSalida, ireloj);
+                        menuAbrirApp(opc,nroSalida);
                     else
                         cout<<"Cierre la sesion actual para iniciar otra."<<endl;
                 break;
                 case 2:             //Caso Enviar Mensaje
                     if(iabrirapp->sesionActiva()){
-                        //funcion()
+                        menuEnviarMensaje();
                     }
                     else
                         cout<<"Debe iniciar sesion antes."<<endl;
                 break;
                 case 6:
-                    menuCambiarFecha(ireloj);
+                    menuCambiarFecha();
                 break;
                 case 7:
-                    mostrarFecha(ireloj);
+                    mostrarFecha();
                 break;
                 case 8:
                     if(iabrirapp->sesionActiva()){
-                        menuAgregarContactos(icAgregarCon);
+                        menuAgregarContactos();
                     }
                     else
                         cout<<"Debe iniciar sesion antes."<<endl;
-                break;  
+                break; 
                 case 12:            //Caso Cerrar App
                     if(iabrirapp->sesionActiva()){
                         iabrirapp->cerrarSesion(ireloj);
@@ -47,6 +49,9 @@ int main(){
                     }
                     else
                         cout<<"Debe iniciar sesion antes."<<endl;
+                break;
+                case 13:
+                    cargarDatos();
                 break;
             }
             menu();
@@ -63,7 +68,7 @@ void menu(){
     cout<<"•5 Eliminar mensajes"<<endl;
     cout<<"•6 Cambiar fecha"<<endl; 
     cout<<"•7 Consultar fecha"<<endl;
-    cout<<"•8 Agregar contactos"<<endl;                 //(opcional)
+    cout<<"•8 Agregar contactos"<<endl;                 
     cout<<"•9 Alta grupo"<<endl;                        //(opcional)
     cout<<"•10 Agregar participantes a un grupo"<<endl;  //(opcional)
     cout<<"•11 Modificar usuario"<<endl;                  //(opcional)
@@ -84,13 +89,13 @@ void ingresarOpcion(int &opcion, int inicio, int fin){
     } 
 }
 
-void menuAbrirApp(int &opc, IAbrirApp* interfaz, int nroSal, IReloj* ireloj){
+void menuAbrirApp(int &opc, int nroSal){
     int tel;
     cout <<"---------------- Abrir app ----------------"<< endl;
     cout <<"Ingrese un telefono para iniciar sesion: ";
     cin >> tel;
-    if(interfaz->existeUsuario(tel)){
-        interfaz->setSesionActual(tel);
+    if(iabrirapp->existeUsuario(tel)){
+        iabrirapp->setSesionActual(tel);
         cout << "Sesion abierta con exito."<< endl;
     }else{
         cout <<"Ese telefono no esta registrado"<<endl;
@@ -100,10 +105,10 @@ void menuAbrirApp(int &opc, IAbrirApp* interfaz, int nroSal, IReloj* ireloj){
         ingresarOpcion(opc, 1, 3);
         switch (opc){
             case 1:
-                menuAltaUsuario(tel, interfaz, ireloj);
+                menuAltaUsuario(tel);
             break;
             case 2:
-                menuAbrirApp(opc, interfaz, nroSal, ireloj);
+                menuAbrirApp(opc, nroSal);
             break;
             case 3:
                 opc = nroSal;
@@ -112,25 +117,26 @@ void menuAbrirApp(int &opc, IAbrirApp* interfaz, int nroSal, IReloj* ireloj){
         } 
 }
 
-void menuAltaUsuario(int tel, IAbrirApp* interfaz, IReloj* ireloj){
+void menuAltaUsuario(int tel){
     string nom, url, desc;
     cout <<"---------------- Registrar usuario ----------------"<< endl;
     cout <<"Ingrese un nombre: ";
-    cin >> nom;
+    cin.ignore();
+    getline(cin, nom);
     cout <<"Suba una imagen de perfil: ";
-    cin >> url;
+    getline(cin, url);
     cout <<"Ingrese una descripcion: ";
-    cin >> desc;
+    getline(cin, desc);
     cout <<endl;
-    DtReloj fecHorConex = interfaz->altaUsuario(tel, nom, url, desc, ireloj);
+    DtReloj fecHorConex = iabrirapp->altaUsuario(tel, nom, url, desc, ireloj);
     cout <<"La fecha de conexion es: ";
     cout << fecHorConex.getFecha().getDia() << "/" << fecHorConex.getFecha().getMes() << "/" << fecHorConex.getFecha().getAnio();
     cout <<" y la hora de conexion es: ";
     cout << fecHorConex.getHora().getHora() << ":" << fecHorConex.getHora().getMin() << endl; 
-    interfaz->setSesionActual(tel);
+    iabrirapp->setSesionActual(tel);
 }
 
-void menuCambiarFecha(IReloj* r){
+void menuCambiarFecha(){
     int dia, mes, anio, hora, minuto;
     DtReloj aux;
     cout << "Ingrese una nueva fecha:" << endl;
@@ -168,41 +174,80 @@ void menuCambiarFecha(IReloj* r){
     aux.setFecha(fec);
     Hora hor = Hora(hora, minuto);
     aux.setHora(hor);
-    r->setFecha(aux);
+    ireloj->setFecha(aux);
     cout << "Fecha y hora del sistema cambiados correctamente." << endl;
 }
 
-void mostrarFecha(IReloj* r){
-    DtReloj aux = r->getFecha();
+void mostrarFecha(){
+    DtReloj aux = ireloj->getFecha();
     cout <<"La fecha y hora del sistema es: ";
     cout << aux.getFecha().getDia() << "/" << aux.getFecha().getMes() << "/" << aux.getFecha().getAnio();
     cout << " " << aux.getHora().getHora() << ":" << aux.getHora().getMin() << endl;
 }
 
 void menuEnviarMensaje(){
+    int opc,id, tel;
     cout <<"---------------- Enviar Mensaje ----------------"<< endl;
-}
-
-void elegirTipoConve(){
-    int tipo;
-    cout << "•1 Elegir conversacion activa" << endl;
-    cout << "•2 Elegir conversacion archivada" << endl;
-    cout << "•3 Iniciar conversacion con contacto" << endl;
-    ingresarOpcion(tipo, 1, 3);
-    switch (tipo){
+    icMensaje->listarConver();
+    cout << "•1 Seleccionar una conversación activa" << endl;
+    cout << "•2 Ver las conversaciones archivadas" << endl;
+    cout << "•3 Enviar un mensaje a un contacto con el cual aún no ha iniciado una conversación" << endl;
+    ingresarOpcion(opc, 1, 3);
+    switch (opc){
         case 1:
-            
+            if(icMensaje->existeConverActiva()){
+                cout << "Ingrese la id de la conversacion: ";
+                cin >> id;
+                while(!icMensaje->hayConverActiva(id)){
+                    cout << "Id invalido. Vuelva a ingresar: ";
+                    cin >> id;
+                }
+                //menuEnviarMensaje();
+            }
+            else{
+                cout << "No tienes conversaciones activas" << endl;
+            }
         break;
         case 2:
-
+            if(icMensaje->existeConverArchivada()){
+                icMensaje->listarArchivadas();
+                cout << "Ingrese la id de la conversacion: ";
+                cin >> id;
+                while(!icMensaje->hayConverArchivada(id)){
+                    cout << "Id invalido. Vuelva a ingresar: ";
+                    cin >> id;
+                }
+                //menuEnviarMensaje();
+            }
+            else{
+                cout << "No tienes conversaciones archivadas" << endl;
+            }
         break;
         case 3:
-
+                icAgregarCon->listarContactos();
+                cout << "Ingrese el telefono del contacto con el que quiere entablar una conversacion." << endl;
+                cin >> tel;
+                while(!icMensaje->esContacto(tel)){
+                    cout << "No tienes agendado a ese telefono. Vuelva a ingresar: ";
+                    cin >> tel;
+                }
+                if(!icMensaje->hayConverActiva(tel) && !icMensaje->hayConverArchivada(tel)){
+                    icMensaje->crearConversacion(tel);
+                    //menuEnviarMensaje();
+                }
+                else{
+                    cout << "Ya tienes una conversacion con ese contacto"<<endl;
+                }
+                    
         break;
     }
 }
 
-void menuAgregarContactos(IControlAgregarContacto* icAgregarCon){
+/*void menuEnviarMensaje(){
+    cout <<"---------------- Elija Tipo Mensaje ----------------"<< endl;
+}*/
+
+void menuAgregarContactos(){
     int op,tel;
     cout << "---------------- Agregar Contactos ----------------" << endl;
     cout <<"Contactos:" << endl;
@@ -218,7 +263,10 @@ void menuAgregarContactos(IControlAgregarContacto* icAgregarCon){
                 icAgregarCon->agregarContacto(tel);
             }
         }
-
     }while(op != 2);
+}
 
+void cargarDatos(){
+    iabrirapp->cargarUsuarios(ireloj);
+    cout << "Datos cargados correctamente." << endl;
 }

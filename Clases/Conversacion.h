@@ -30,6 +30,7 @@ class Conversacion{
         void setMensaje(int id, Mensaje* men);
         Usuario* getIntegrante(int tel);
         void setIntegrante(int tel, Usuario* integrante);
+        DtUsuario getReceptor(int emisor);
         ~Conversacion();
 };
 

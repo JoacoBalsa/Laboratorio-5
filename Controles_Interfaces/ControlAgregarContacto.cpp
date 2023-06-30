@@ -6,6 +6,10 @@ void ControlAgregarContacto::listarContactos(){
     ManejadorUsuario *mU = mU->getInstancia();
     list<DtUsuario> conts;
     mU->getContactos(conts);
+    if(conts.size() == 0){
+        cout << "No hay contactos agendados" << endl;
+        exit;
+    }
     for(auto itr = conts.begin(); itr != conts.end(); itr++)
         cout << "Nombre: " << itr->getNombre() << " Telefono: " << itr->getTel() << " Imagen: " << itr->getImg() << endl;
 }

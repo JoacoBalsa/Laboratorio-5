@@ -2,6 +2,7 @@
 #include "Controles_Interfaces/ControlAbrirApp.h"
 #include "Controles_Interfaces/ControlReloj.h"
 #include "Controles_Interfaces/ControlAgregarContacto.h"
+#include "Controles_Interfaces/ControlCasosMensaje.h"
 
 Fabrica* Fabrica::instancia=NULL;
 
@@ -23,4 +24,8 @@ IReloj* Fabrica::getIReloj(){
 
 IControlAgregarContacto* Fabrica::getICAgregarCon(){
     return new ControlAgregarContacto();
+}
+
+ICasosMensaje* Fabrica::getICasosMensaje(){
+    return new ControlCasosMensaje();
 }

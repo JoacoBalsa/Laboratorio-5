@@ -17,18 +17,20 @@ void ingresarOpcion(int &opcion, int inicio, int fin);
 
 void menu();
 
-void menuAbrirApp(int &opc, IAbrirApp* interfaz, int nroSal, IReloj* ireloj);
+void menuAbrirApp(int &opc,int nroSal);
 
-void menuAltaUsuario(int tel, IAbrirApp* interfaz, IReloj* r);
+void menuAltaUsuario(int tel);
 
-void menuCambiarFecha(IReloj* r);
+void menuCambiarFecha();
 
-void mostrarFecha(IReloj* r);
+void mostrarFecha();
 
 void menuEnviarMensaje();
 
-void elegirTipoConve();
+void menuAgregarContactos();
 
-void menuAgregarContactos(IControlAgregarContacto* icAgregarCon);
+void cargarDatos();
+
+void menuEnviarMensaje();
 
 #endif

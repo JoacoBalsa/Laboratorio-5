@@ -28,7 +28,7 @@ void ManejadorUsuario::agregarUsuario(Usuario* user){
     this->usuarios.insert(p);
 }
 
-bool ManejadorUsuario::hayActiva(){
+bool ManejadorUsuario::haySesionActiva(){
     return (this->sesionActual != NULL);
 }
 
@@ -42,14 +42,17 @@ Usuario* ManejadorUsuario::getUsuario(){
     return this->sesionActual;
 }
 
-map<int, Conversacion*> ManejadorUsuario::getActivas(){
-    Usuario* usuarioActual = this->sesionActual;
-    return usuarioActual->getActivas();
+void ManejadorUsuario::getActivas(list<DtConversacion>& Activas){
+    this->sesionActual->getActivas(Activas);
 }
 
-map<int, Conversacion*> ManejadorUsuario::getArchivadas(){
+void ManejadorUsuario::getArchivadas(list<DtConversacion>& Archivadas){
+    this->sesionActual->getArchivadas(Archivadas);
+}
+
+int ManejadorUsuario::getCantArch(){
     Usuario* usuarioActual = this->sesionActual;
-    return usuarioActual->getArchivadas();
+    return usuarioActual->getCantArch();
 }
 
 void ManejadorUsuario::getContactos(list<DtUsuario>& cont) {
@@ -62,6 +65,26 @@ void ManejadorUsuario::setContacto(int tel){
 
 Usuario* ManejadorUsuario::getUser(int tel){
     return this->usuarios.find(tel)->second;
+}
+
+bool ManejadorUsuario::hayConverActiva(int id){
+    return (this->sesionActual->getActiva(id) != NULL);
+}
+
+bool ManejadorUsuario::hayConverArchivada(int id){
+    return (this->sesionActual->getArchivada(id) != NULL);
+}
+
+bool ManejadorUsuario::existeConverActiva(){
+    return (this->sesionActual->hayActivas());
+}
+
+bool ManejadorUsuario::existeConverArchivada(){
+    return (this->sesionActual->hayArchivadas());
+}
+
+bool ManejadorUsuario::esContacto(int tel){
+    return (this->sesionActual->getContacto(tel) != NULL);
 }
 
 ManejadorUsuario::~ManejadorUsuario(){} //Eliminar todos los usuarios de la coleccion liberando la memoria de cada uno

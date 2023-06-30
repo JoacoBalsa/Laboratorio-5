@@ -14,6 +14,7 @@ class Fabrica{
         IAbrirApp* getIAbrirApp();
         IReloj* getIReloj();
         IControlAgregarContacto* getICAgregarCon();
+        ICasosMensaje* getICasosMensaje();
         ~Fabrica();
 };
 #endif
