@@ -11,10 +11,13 @@ using namespace std;
 
 class MenVid : public Mensaje {
     private:
+        string url;
         float dur;
     public:
         MenVid();
         MenVid(int id, DtReloj fec, float dur);
+        string getUrl();
+        void setUrl(string u);
         float getDuracion();
         void setDuracion(float dur);
         ~MenVid();

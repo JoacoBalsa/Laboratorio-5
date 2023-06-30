@@ -2,6 +2,7 @@
 #define MAIN_H
 #include <stdio.h>
 #include <iostream>
+#include "Formato.h"
 
 //Fabrica
 #include "Fabrica.h"
@@ -33,6 +34,6 @@ void cargarDatos();
 
 void menuEnviarMensaje();
 
-void menuDatosMensaje();
+void menuDatosMensaje(int id);
 
 #endif

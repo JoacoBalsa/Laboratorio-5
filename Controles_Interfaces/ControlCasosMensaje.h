@@ -3,14 +3,15 @@
 #include "ICasosMensaje.h"
 #include "ManejadorUsuario.h"
 #include "ManejadorConversacion.h"
+#include "ManejadorMensaje.h"
 #include "../Clases/Conversacion.h"
+#include "../Formato.h"
 
 class ControlCasosMensaje : public ICasosMensaje{
     public:
         ControlCasosMensaje();
         int elegirContacto(int tel);
         void listarConver();
-        void elegirTipoConve(int tel);
         bool hayConverActiva(int id);
         bool hayConverArchivada(int id);
         bool existeConverActiva();

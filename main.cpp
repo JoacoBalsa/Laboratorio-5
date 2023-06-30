@@ -82,7 +82,7 @@ void ingresarOpcion(int &opcion, int inicio, int fin){
     cout <<"Ingrese una opcion: ";
     cin >> opcion;
     cout <<endl;
-    while(opcion < inicio or opcion > fin){
+    while(opcion < inicio || opcion > fin){
         cout <<"Opcion invalida, ingrese de nuevo una opcion: ";
         cin >> opcion;
         cout << endl;
@@ -202,7 +202,7 @@ void menuEnviarMensaje(){
                     cout << "Id invalido. Vuelva a ingresar: ";
                     cin >> id;
                 }
-                menuDatosMensaje();
+                menuDatosMensaje(id);
             }
             else{
                 cout << "No tienes conversaciones activas" << endl;
@@ -217,7 +217,7 @@ void menuEnviarMensaje(){
                     cout << "Id invalido. Vuelva a ingresar: ";
                     cin >> id;
                 }
-                menuDatosMensaje();
+                menuDatosMensaje(id);
             }
             else{
                 cout << "No tienes conversaciones archivadas" << endl;
@@ -233,25 +233,74 @@ void menuEnviarMensaje(){
                 }
                 if(!icMensaje->hayConverActiva(tel) && !icMensaje->hayConverArchivada(tel)){
                     icMensaje->crearConversacion(tel);
-                    menuDatosMensaje();
+                    //menuDatosMensaje();
                 }
                 else{
                     cout << "Ya tienes una conversacion con ese contacto"<<endl;
-                }
-                    
+                }       
         break;
     }
 }
 
-void menuDatosMensaje(){
-    int opc;
+void menuDatosMensaje(int id){
+    int opc, tel;
+    string url, texto;
+    Formato formato;
+    float tamanio, duracion;
     cout <<"---------------- Elija Tipo Mensaje ----------------"<< endl;
     cout<<"•1 Simple"<<endl; 
     cout<<"•2 Imagen"<<endl; 
     cout<<"•3 Video"<<endl;
     cout<<"•4 Contacto"<<endl;
     ingresarOpcion(opc, 1, 4);
-    icMensaje->crearMensaje(opc, ireloj->getFecha());
+    switch (opc){
+        case 1:             //Mensaje simple
+            cout << "Ingrese el texto: ";
+            getline(cin, texto);
+            cout << endl; 
+        break;
+        case 2:             //Imagen
+            cout << "Ingrese la url de la foto: ";
+            getline(cin, url);
+            cout << "\nIngrese el formato de la foto:";
+            cout << "•1 PNG" << endl;
+            cout << "•2 JPG" << endl;
+            cout << "•3 GIF" << endl;
+            ingresarOpcion(opc, 1, 3);
+            switch(opc){
+                case 1:
+                    formato = PNG;
+                break;
+                case 2:
+                    formato = JPG;
+                break;
+                case 3:
+                    formato = GIF;
+                break;
+            }
+            cout << "\nIngrese el tamanio de la foto: ";
+            cin >> tamanio;
+            cout << "\nIngrese un texto para la foto: ";
+            getline(cin, texto);
+        break;
+        case 3:             //Video
+            cout << "Ingrese la url de la foto: ";
+            getline(cin, url);
+            cout << "Ingrese la duracion del video: ";
+            cin >> duracion;
+        break;
+        case 4:             //Contacto
+            icAgregarCon->listarContactos();
+            cout << "Ingrese el contacto que desea enviar: ";
+            cin >> tel;
+            cout << endl;
+            while(!icMensaje->esContacto(tel)){
+                cout << "No tienes agendado a ese usuario. Ingrese otro: ";
+                cin >> tel;
+                cout << endl;
+            }
+        break;
+    }
 }
 
 void menuAgregarContactos(){

@@ -10,10 +10,13 @@ using namespace std;
 
 class DtMenVid : public DtMensaje {
     private:
+        string url;
         float dur;
     public:
         DtMenVid();
         DtMenVid(int id, DtReloj fec, float dur);
+        string getUrl();
+        void setUrl(string u);
         float getDuracion();
         void setDuracion(float dur);
         ~DtMenVid();

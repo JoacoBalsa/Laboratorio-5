@@ -7,7 +7,6 @@ class ICasosMensaje{
     public:
         virtual int elegirContacto(int tel) = 0;
         virtual void listarConver() = 0;
-        virtual void elegirTipoConve(int tel) = 0;
         virtual bool hayConverActiva(int id) = 0;
         virtual bool hayConverArchivada(int id) = 0;
         virtual bool existeConverActiva() = 0;

@@ -1,5 +1,5 @@
-#ifndef MENIMG_H
-#define MENIMG_H
+#ifndef MENSIMPLE_H
+#define MENSIMPLE_H
 #include <stdio.h>
 #include <iostream>
 #include <string.h>
