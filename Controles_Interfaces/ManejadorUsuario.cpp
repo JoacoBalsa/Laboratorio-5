@@ -87,4 +87,8 @@ bool ManejadorUsuario::esContacto(int tel){
     return (this->sesionActual->getContacto(tel) != NULL);
 }
 
+bool ManejadorUsuario::hayConverconUser(int tel){
+    return (this->sesionActual->hayConverconUser(tel, this->sesionActual->getTel()));
+}
+
 ManejadorUsuario::~ManejadorUsuario(){} //Eliminar todos los usuarios de la coleccion liberando la memoria de cada uno

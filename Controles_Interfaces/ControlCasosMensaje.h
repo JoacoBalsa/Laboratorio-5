@@ -10,7 +10,6 @@
 class ControlCasosMensaje : public ICasosMensaje{
     public:
         ControlCasosMensaje();
-        int elegirContacto(int tel);
         void listarConver();
         bool hayConverActiva(int id);
         bool hayConverArchivada(int id);
@@ -18,8 +17,14 @@ class ControlCasosMensaje : public ICasosMensaje{
         bool existeConverArchivada();
         bool esContacto(int tel);
         void listarArchivadas();
-        void crearConversacion(int receptor);
-        void crearMensaje(int tipoMen, DtReloj fec_env);
+        int crearConversacion(int receptor);
+        void activarConver(int id);
+        void archivarConver(int id);
+        bool hayConverconUser(int tel);
+        void crearMenImagen(int idConver, DtReloj fec, float tam, Formato form, string text, string url);
+        void crearMenSimple(int idConver, DtReloj fec, string text); 
+        void crearMenVid(int idConver, DtReloj fec, float dur, string url);
+        void crearMenContacto(int idConver, DtReloj fec, int tel);
 };
 
 #endif

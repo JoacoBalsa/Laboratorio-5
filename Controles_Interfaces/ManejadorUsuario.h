@@ -37,6 +37,7 @@ class ManejadorUsuario{
         bool existeConverActiva();
         bool existeConverArchivada();
         bool esContacto(int tel);
+        bool hayConverconUser(int tel);
         ~ManejadorUsuario();
 };
 #endif

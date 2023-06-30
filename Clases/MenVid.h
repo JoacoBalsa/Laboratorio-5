@@ -15,7 +15,7 @@ class MenVid : public Mensaje {
         float dur;
     public:
         MenVid();
-        MenVid(int id, DtReloj fec, float dur);
+        MenVid(int id, DtReloj fec, float dur, string url);
         string getUrl();
         void setUrl(string u);
         float getDuracion();

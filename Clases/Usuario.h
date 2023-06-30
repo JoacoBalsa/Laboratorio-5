@@ -52,10 +52,12 @@ class Usuario{
         void setActiva(int id, Conversacion* conve);
         void getActivas(list<DtConversacion>& Activas);
         void getArchivadas(list<DtConversacion>& Archivadas);
+        void dropConver(int id);
         int getCantArch();
         void setArchivada(int id, Conversacion* conve);
         bool hayActivas();
         bool hayArchivadas();
+        bool hayConverconUser(int receptor, int emisor);
         ~Usuario();
 };
 

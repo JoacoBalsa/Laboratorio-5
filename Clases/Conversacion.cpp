@@ -62,5 +62,9 @@ DtUsuario Conversacion::getReceptor(int emisor){
     return ret;
 }
 
+int Conversacion::getCantMensajes(){
+    return (this->mensajes.size()+1);
+}
+
 
 Conversacion::~Conversacion(){};

@@ -1,8 +1,9 @@
 #include "MenVid.h"
 
 MenVid::MenVid(){};
-MenVid::MenVid(int id, DtReloj fec, float dur):Mensaje(id, fec){
+MenVid::MenVid(int id, DtReloj fec, float dur, string url):Mensaje(id, fec){
     this->dur = dur;
+    this->url = url;
 };
 
 string MenVid::getUrl(){

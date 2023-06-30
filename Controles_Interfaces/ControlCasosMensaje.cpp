@@ -31,7 +31,7 @@ void ControlCasosMensaje::listarConver(){
     if(cantArch >= 1)
         cout << "Archivadas: " << cantArch << endl;
     else
-        cout << "No hay conversaciones archivas" << endl;
+        cout << "No hay conversaciones archivadas" << endl;
 
 }
 
@@ -48,11 +48,6 @@ void ControlCasosMensaje::listarArchivadas(){
         cout << " Telefono: " << receptor.getTel()<< " ";
         cout << endl;
     }
-}
-
-int ControlCasosMensaje::elegirContacto(int tel){
-    ManejadorUsuario *mU = mU->getInstancia();
-    return tel;                                     //Cambiar
 }
 
 bool ControlCasosMensaje::hayConverActiva(int id){
@@ -80,7 +75,7 @@ bool ControlCasosMensaje::esContacto(int tel){
     return (mU->esContacto(tel));
 }
 
-void ControlCasosMensaje::crearConversacion(int receptor){
+int ControlCasosMensaje::crearConversacion(int receptor){
     ManejadorUsuario *mU = mU->getInstancia();
     ManejadorConversacion *mC = mC->getInstancia();
     Usuario* userDestino = mU->getUser(receptor); 
@@ -88,8 +83,62 @@ void ControlCasosMensaje::crearConversacion(int receptor){
     Conversacion* conver = mC->crearConversacion(emisor, userDestino);
     userDestino->setActiva(conver->getId(), conver);
     emisor->setActiva(conver->getId(), conver);
+    return conver->getId();
 }
 
-void ControlCasosMensaje::crearMensaje(int tipoMen, DtReloj fec_env){
-    
+bool ControlCasosMensaje::hayConverconUser(int tel){
+    ManejadorUsuario *mU = mU->getInstancia();
+    ManejadorConversacion *mC = mC->getInstancia();
+    return (mU->hayConverconUser(tel));
+}
+
+void ControlCasosMensaje::activarConver(int id){
+    ManejadorUsuario *mU = mU->getInstancia();
+    Usuario* user = mU->getUsuario();
+    Conversacion* conver = user->getArchivada(id);
+    user->dropConver(id);
+    user->setActiva(id, conver);
+}
+
+void ControlCasosMensaje::archivarConver(int id){
+    ManejadorUsuario *mU = mU->getInstancia();
+    Usuario* user = mU->getUsuario();
+    Conversacion* conver = user->getActiva(id);
+    user->dropConver(id);
+    user->setArchivada(id, conver);
+}
+
+void ControlCasosMensaje::crearMenImagen(int idConver, DtReloj fec, float tam, Formato form, string text, string url){
+    ManejadorUsuario *mU = mU->getInstancia();
+    Usuario* user = mU->getUsuario();
+    Conversacion* conver = user->getActiva(idConver);
+    ManejadorMensaje* mM = mM->getInstancia();
+    MenImg* mensaje = mM->crearImagen(conver->getCantMensajes(), fec,tam,form,text, url);
+    conver->setMensaje(mensaje->getId(), mensaje);
+}
+
+void ControlCasosMensaje::crearMenSimple(int idConver, DtReloj fec, string text){
+    ManejadorUsuario *mU = mU->getInstancia();
+    Usuario* user = mU->getUsuario();
+    Conversacion* conver = user->getActiva(idConver);
+    ManejadorMensaje* mM = mM->getInstancia();
+    MenSimple* mensaje = mM->crearSimple(conver->getCantMensajes(), fec, text);
+}
+
+void ControlCasosMensaje::crearMenVid(int idConver, DtReloj fec, float dur, string url){
+    ManejadorUsuario *mU = mU->getInstancia();
+    Usuario* user = mU->getUsuario();
+    Conversacion* conver = user->getActiva(idConver);
+    ManejadorMensaje* mM = mM->getInstancia();
+    MenVid* mensaje = mM->crearVideo(conver->getCantMensajes(), fec, dur, url);
+    conver->setMensaje(mensaje->getId(), mensaje);
+}
+
+void ControlCasosMensaje::crearMenContacto(int idConver, DtReloj fec, int tel){
+    ManejadorUsuario *mU = mU->getInstancia();
+    Usuario* user = mU->getUsuario();
+    Conversacion* conver = user->getActiva(idConver);
+    ManejadorMensaje* mM = mM->getInstancia();
+    MenContacto* mensaje = mM->crearMenContacto(conver->getCantMensajes(), fec, tel, mU->getUser(tel)->getNombre());
+    conver->setMensaje(mensaje->getId(), mensaje);
 }

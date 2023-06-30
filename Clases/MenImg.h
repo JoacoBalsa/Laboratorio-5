@@ -18,7 +18,7 @@ class MenImg : public Mensaje{
         string texto;
     public:
         MenImg();
-        MenImg(int id, DtReloj fec, float tam, Formato form, string text);
+        MenImg(int id, DtReloj fec, float tam, Formato form, string text, string url);
         string getUrl();
         void setUrl(string u);
         float getTamanio();

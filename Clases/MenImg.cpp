@@ -1,10 +1,11 @@
 #include "MenImg.h"
 
 MenImg::MenImg(){};
-MenImg::MenImg(int id, DtReloj fec, float tam, Formato form, string text):Mensaje(id,fec){
+MenImg::MenImg(int id, DtReloj fec, float tam, Formato form, string text,string url):Mensaje(id,fec){
     this->tamanio = tam;
     this->formato = form;
     this->texto = text;
+    this->url = url;
 };
 
 string MenImg::getUrl(){

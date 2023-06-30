@@ -34,3 +34,7 @@ DtUsuario ManejadorConversacion::getReceptor(Usuario* user, int id){
     DtUsuario receptor =  this->conversacionActual->getReceptor(user->getTel());
     return receptor;
 }
+
+Conversacion* ManejadorConversacion::getConver(int id){
+    return this->conversaciones.find(id)->second;
+}

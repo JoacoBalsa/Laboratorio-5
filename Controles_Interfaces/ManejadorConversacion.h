@@ -20,6 +20,7 @@ class ManejadorConversacion {
         void addConver(Conversacion* conver);
         DtUsuario getReceptor(Usuario* user, int id);
         Conversacion* crearConversacion(Usuario* emisor, Usuario* receptor);
+        Conversacion* getConver(int id);
 };
 
 #endif

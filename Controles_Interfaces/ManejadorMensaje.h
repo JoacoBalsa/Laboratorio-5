@@ -1,5 +1,5 @@
-#ifndef MANEJADORCONVERSACION_H
-#define MANEJADORCONVERSACION_H
+#ifndef MANEJADORMENSAJE_H
+#define MANEJADORMENSAJE_H
 #include "IAbrirApp.h"
 #include <string.h>
 #include <iostream>
@@ -18,13 +18,10 @@ class ManejadorMensaje{
         ManejadorMensaje();
     public:
         ManejadorMensaje* getInstancia();
-        MenImg* crearImagen(string url, float tamanio, Formato formato, string texto);
-        MenVid* crearVideo(string url,float dur);
-        MenSimple* crearSimple(string tex);
-        MenContacto* crearMenContacto(int telefono, string nombre);
-
+        MenImg* crearImagen(int id, DtReloj fec, float tam, Formato form, string text, string url);
+        MenVid* crearVideo(int id, DtReloj fec,float dur,string url);
+        MenSimple* crearSimple(int id, DtReloj fec, string text);
+        MenContacto* crearMenContacto(int id, DtReloj fec, int tel, string nom);
 };
-
-
 
 #endif

@@ -36,4 +36,6 @@ void menuEnviarMensaje();
 
 void menuDatosMensaje(int id);
 
+void menuArchivarConver();
+
 #endif

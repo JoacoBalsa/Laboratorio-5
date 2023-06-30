@@ -29,6 +29,13 @@ int main(){
                     else
                         cout<<"Debe iniciar sesion antes."<<endl;
                 break;
+                case 4:
+                    if(iabrirapp->sesionActiva()){
+                        menuArchivarConver();
+                    }
+                    else
+                        cout<<"Debe iniciar sesion antes."<<endl;
+                break;
                 case 6:
                     menuCambiarFecha();
                 break;
@@ -68,11 +75,11 @@ void menu(){
     cout<<"•5 Eliminar mensajes"<<endl;
     cout<<"•6 Cambiar fecha"<<endl; 
     cout<<"•7 Consultar fecha"<<endl;
-    cout<<"•8 Agregar contactos"<<endl;                 
-    cout<<"•9 Alta grupo"<<endl;                        //(opcional)
-    cout<<"•10 Agregar participantes a un grupo"<<endl;  //(opcional)
-    cout<<"•11 Modificar usuario"<<endl;                  //(opcional)
-    cout<<"•12 CerrarApp"<<endl;                          
+    cout<<"•8 Agregar contactos"<<endl;                     //(opcional)                
+    cout<<"•9 Alta grupo"<<endl;                            //(opcional)
+    cout<<"•10 Agregar participantes a un grupo"<<endl;     //(opcional)
+    cout<<"•11 Modificar usuario"<<endl;                    //(opcional)
+    cout<<"•12 CerrarApp"<<endl;                            //(opcional)                         
     cout<<"•13 Cargar datos de prueba"<<endl;
     cout<<"•14 Salir"<<endl; 
     cout<<"-------------------------------------"<<endl;
@@ -203,6 +210,7 @@ void menuEnviarMensaje(){
                     cin >> id;
                 }
                 menuDatosMensaje(id);
+                cout << "Mensaje enviado con exito" << endl;
             }
             else{
                 cout << "No tienes conversaciones activas" << endl;
@@ -217,7 +225,9 @@ void menuEnviarMensaje(){
                     cout << "Id invalido. Vuelva a ingresar: ";
                     cin >> id;
                 }
+                icMensaje->activarConver(id);
                 menuDatosMensaje(id);
+                cout << "Mensaje enviado con exito" << endl;
             }
             else{
                 cout << "No tienes conversaciones archivadas" << endl;
@@ -231,9 +241,10 @@ void menuEnviarMensaje(){
                     cout << "No tienes agendado a ese telefono. Vuelva a ingresar: ";
                     cin >> tel;
                 }
-                if(!icMensaje->hayConverActiva(tel) && !icMensaje->hayConverArchivada(tel)){
-                    icMensaje->crearConversacion(tel);
-                    //menuDatosMensaje();
+                if(!icMensaje->hayConverconUser(tel)){
+                    id = icMensaje->crearConversacion(tel);
+                    menuDatosMensaje(id);
+                    cout << "Mensaje enviado con exito" << endl;
                 }
                 else{
                     cout << "Ya tienes una conversacion con ese contacto"<<endl;
@@ -256,13 +267,16 @@ void menuDatosMensaje(int id){
     switch (opc){
         case 1:             //Mensaje simple
             cout << "Ingrese el texto: ";
+            cin.ignore();
             getline(cin, texto);
-            cout << endl; 
+            cout << endl;
+            // crearMenSimple()
         break;
         case 2:             //Imagen
             cout << "Ingrese la url de la foto: ";
+            cin.ignore();
             getline(cin, url);
-            cout << "\nIngrese el formato de la foto:";
+            cout << "\nIngrese el formato de la foto: " << endl;
             cout << "•1 PNG" << endl;
             cout << "•2 JPG" << endl;
             cout << "•3 GIF" << endl;
@@ -280,24 +294,29 @@ void menuDatosMensaje(int id){
             }
             cout << "\nIngrese el tamanio de la foto: ";
             cin >> tamanio;
+            cin.ignore();
             cout << "\nIngrese un texto para la foto: ";
             getline(cin, texto);
+            icMensaje->crearMenImagen(id, ireloj->getFecha(), tamanio, formato, texto, url);
         break;
         case 3:             //Video
-            cout << "Ingrese la url de la foto: ";
+            cout << "Ingrese la url de la video: ";
+            cin.ignore();
             getline(cin, url);
             cout << "Ingrese la duracion del video: ";
             cin >> duracion;
+            icMensaje->crearMenVid(id, ireloj->getFecha(), duracion, url);
         break;
         case 4:             //Contacto
             icAgregarCon->listarContactos();
-            cout << "Ingrese el contacto que desea enviar: ";
+            cout << "Ingrese el numero del contacto que desea enviar: ";
             cin >> tel;
             cout << endl;
             while(!icMensaje->esContacto(tel)){
                 cout << "No tienes agendado a ese usuario. Ingrese otro: ";
                 cin >> tel;
                 cout << endl;
+                icMensaje->crearMenContacto(id, ireloj->getFecha(), tel);
             }
         break;
     }
@@ -325,4 +344,29 @@ void menuAgregarContactos(){
 void cargarDatos(){
     iabrirapp->cargarUsuarios(ireloj);
     cout << "Datos cargados correctamente." << endl;
+}
+
+void menuArchivarConver(){
+    if(icMensaje->existeConverActiva()){
+        int op, id;
+       do{
+            cout << endl;
+            icMensaje->listarConver();
+            cout << "1. Archivar conversacion."<< endl;
+            cout << "2. Salir"<< endl;
+            ingresarOpcion(op,1,2);
+            if(op == 1){
+                cout << "Ingrese el id de la conversacion: ";
+                cin >> id;
+                while(!icMensaje->hayConverActiva(id)){
+                    cout << "Id erroneo, ingrese otro: ";
+                    cin >> id;
+                }
+                icMensaje->archivarConver(id);
+            }
+       }while(op != 2 && icMensaje->existeConverActiva());
+    }
+    else{
+        cout << "No hay conversaciones activas" << endl;
+    }
 }

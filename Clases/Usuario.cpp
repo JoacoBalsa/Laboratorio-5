@@ -108,17 +108,11 @@ int Usuario::getCantArch(){
 }
 
 void Usuario::setActiva(int id, Conversacion* conve){
-    if(this->activas.find(id) != this->activas.end())
-        throw invalid_argument("Este usuario ya forma parte de esa conversacion.\n"); 
-    else
-        this->activas[id] = conve;
+    this->activas[id] = conve;
 };
 
 void Usuario::setArchivada(int id, Conversacion* conve){
-    if(this->archivadas.find(id) != this->archivadas.end())
-        throw invalid_argument("Este usuario ya forma parte de esa conversacion.\n"); 
-    else
-        this->archivadas[id] = conve;
+    this->archivadas[id] = conve;
 };
 
 bool Usuario::hayActivas(){
@@ -141,6 +135,27 @@ Conversacion* Usuario::getArchivada(int id){
         return this->archivadas[id];
     else    
         return NULL;
+}
+
+void Usuario::dropConver(int id){
+    if(this->archivadas.find(id) != this->archivadas.end()){
+        this->archivadas.erase(id);
+    }
+    else{
+        this->activas.erase(id);
+    }      
+}
+
+bool Usuario::hayConverconUser(int receptor, int emisor){
+    for(auto itr = this->archivadas.begin(); itr != this->archivadas.end(); itr++){
+        if(itr->second->getReceptor(emisor).getTel() == receptor)
+            return true;
+    }
+    for(auto itr = this->activas.begin(); itr != this->activas.end(); itr++){
+        if(itr->second->getReceptor(emisor).getTel() == receptor)
+            return true;
+    }
+    return false;
 }
 
 Usuario::~Usuario(){};
