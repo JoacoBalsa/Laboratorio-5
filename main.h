@@ -33,4 +33,6 @@ void cargarDatos();
 
 void menuEnviarMensaje();
 
+void menuDatosMensaje();
+
 #endif

@@ -88,4 +88,29 @@ void ControlCasosMensaje::crearConversacion(int receptor){
     emisor->setActiva(conver->getId(), conver);
 }
 
+void ControlCasosMensaje::crearMensaje(int tipoMen, DtReloj fec_env){
+    string url, formato, texto;
+    float tamanio;
+    switch (tipoMen){
+    case 1:
+        cout << "Ingrese el texto: ";
+        cout << endl; 
+    break;
+    case 2:
+        cout << "\nIngrese la url de la foto: ";
+        cin >> url;
+        cout << "\nIngrese el formato de la foto: ";
+        cin >> formato;
+        cout << "\nIngrese el tamanio de la foto: ";
+        cin >> tamanio;
+        cout << "\nIngrese un texto para la foto: ";
+        cin >> texto;
+    break;
+    case 3:
+    break;
+    case 4:
+    break;
+    }
+}
+
 void ControlCasosMensaje::elegirTipoConve(int tel){}

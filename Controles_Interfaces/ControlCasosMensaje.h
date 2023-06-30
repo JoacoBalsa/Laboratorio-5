@@ -18,6 +18,7 @@ class ControlCasosMensaje : public ICasosMensaje{
         bool esContacto(int tel);
         void listarArchivadas();
         void crearConversacion(int receptor);
+        void crearMensaje(int tipoMen, DtReloj fec_env);
 };
 
 #endif

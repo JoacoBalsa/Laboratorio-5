@@ -9,12 +9,15 @@ using namespace std;
 
 class DtMenImg : public DtMensaje {
     private:
+        string url;
         float tamanio;
         Formato formato;
         string texto;
     public:
         DtMenImg();
         DtMenImg(int id, DtReloj fec, float tam, Formato form, string tex);
+        string getUrl();
+        void setUrl(string u);
         float getTamanio();
         void setTamanio(float tam);
         Formato getFormato();

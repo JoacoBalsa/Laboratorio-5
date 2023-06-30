@@ -15,6 +15,7 @@ class ICasosMensaje{
         virtual bool esContacto(int tel) = 0;
         virtual void listarArchivadas() = 0;
         virtual void crearConversacion(int receptor) = 0;
+        virtual void crearMensaje(int tipoMen, DtReloj fec_env) = 0;
 };
 
 #endif

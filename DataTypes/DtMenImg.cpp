@@ -8,6 +8,13 @@ DtMenImg::DtMenImg(int id, DtReloj fec, float tam, Formato form, string tex):DtM
     this->texto = tex;
 };
 
+string DtMenImg::getUrl(){
+    return this->url;
+}
+void DtMenImg::setUrl(string u){
+    this->url = u;
+}
+
 float DtMenImg::getTamanio(){
     return this->tamanio;
 };
