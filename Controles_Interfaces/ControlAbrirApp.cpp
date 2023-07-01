@@ -70,3 +70,19 @@ void ControlAbrirApp::cargarUsuarios(IReloj* ireloj){
     mU->setContacto(6);
     mU->cerrarSesion(ireloj);
 }
+
+void ControlAbrirApp::modificarUsuario(int opc, string nom, string url, string desc){
+    ManejadorUsuario *mU = mU->getInstancia();
+    Usuario* user = mU->getUsuario();
+    switch (opc){
+    case 1:
+        user->setNombre(nom);
+    break;
+    case 2:
+        user->setImg(url);
+    break;
+    case 3:
+        user->setBio(desc);
+    break;
+    }
+}

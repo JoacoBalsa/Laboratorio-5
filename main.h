@@ -18,7 +18,7 @@ void ingresarOpcion(int &opcion, int inicio, int fin);
 
 void menu();
 
-void menuAbrirApp(int &opc,int nroSal);
+void menuAbrirApp();
 
 void menuAltaUsuario(int tel);
 
@@ -37,5 +37,7 @@ void menuEnviarMensaje();
 void menuDatosMensaje(int id);
 
 void menuArchivarConver();
+
+void menuModificarUsuario();
 
 #endif

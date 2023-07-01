@@ -22,5 +22,6 @@ class ControlAbrirApp: public IAbrirApp{
         bool sesionActiva();
         void cerrarSesion(IReloj* ireloj);
         void cargarUsuarios(IReloj* ireloj);
+        void modificarUsuario(int opc, string nom, string url, string desc);
 };
 #endif

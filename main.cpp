@@ -18,7 +18,7 @@ int main(){
             {
                 case 1:             //Caso Abrir App
                     if(!iabrirapp->sesionActiva()) 
-                        menuAbrirApp(opc,nroSalida);
+                        menuAbrirApp();
                     else
                         cout<<"Cierre la sesion actual para iniciar otra."<<endl;
                 break;
@@ -49,6 +49,14 @@ int main(){
                     else
                         cout<<"Debe iniciar sesion antes."<<endl;
                 break; 
+                case 11:            //Caso Modificar usuario.
+                    if(iabrirapp->sesionActiva()){
+                        menuModificarUsuario();
+                        cout << "Datos modificados con exito."<< endl;
+                    }
+                    else
+                        cout<<"Debe iniciar sesion antes."<<endl;
+                break;
                 case 12:            //Caso Cerrar App
                     if(iabrirapp->sesionActiva()){
                         iabrirapp->cerrarSesion(ireloj);
@@ -96,8 +104,8 @@ void ingresarOpcion(int &opcion, int inicio, int fin){
     } 
 }
 
-void menuAbrirApp(int &opc, int nroSal){
-    int tel;
+void menuAbrirApp(){
+    int tel, opc;
     cout <<"---------------- Abrir app ----------------"<< endl;
     cout <<"Ingrese un telefono para iniciar sesion: ";
     cin >> tel;
@@ -115,10 +123,7 @@ void menuAbrirApp(int &opc, int nroSal){
                 menuAltaUsuario(tel);
             break;
             case 2:
-                menuAbrirApp(opc, nroSal);
-            break;
-            case 3:
-                opc = nroSal;
+                menuAbrirApp();
             break;
             }
         } 
@@ -161,7 +166,7 @@ void menuCambiarFecha(){
     }
     cout << "Anio: ";
     cin >> anio;
-    while(anio < 2000 || anio > 2024){
+    while(anio < 1990 || anio > 2024){
         cout << "Valor invalido. Ingrese un valor valido." << endl;
         cin >> anio;
     }
@@ -173,7 +178,7 @@ void menuCambiarFecha(){
     }
     cout << "Minuto: ";
     cin >> minuto;
-    while(minuto < 1 || minuto > 59){
+    while(minuto < 0 || minuto > 59){
         cout << "Valor invalido. Ingrese un valor valido." << endl;
         cin >> minuto;
     }
@@ -193,9 +198,10 @@ void mostrarFecha(){
 }
 
 void menuEnviarMensaje(){
-    int opc,id, tel;
+    int opc, id, tel;
     cout <<"---------------- Enviar Mensaje ----------------"<< endl;
     icMensaje->listarConver();
+    cout << "------------------------------------------------" << endl;
     cout << "•1 Seleccionar una conversación activa" << endl;
     cout << "•2 Ver las conversaciones archivadas" << endl;
     cout << "•3 Enviar un mensaje a un contacto con el cual aún no ha iniciado una conversación" << endl;
@@ -270,7 +276,7 @@ void menuDatosMensaje(int id){
             cin.ignore();
             getline(cin, texto);
             cout << endl;
-            // crearMenSimple()
+            icMensaje->crearMenSimple(id, ireloj->getFecha(), texto);
         break;
         case 2:             //Imagen
             cout << "Ingrese la url de la foto: ";
@@ -369,4 +375,30 @@ void menuArchivarConver(){
     else{
         cout << "No hay conversaciones activas" << endl;
     }
+}
+
+void menuModificarUsuario(){
+    int opc;
+    string nombre, url, desc;
+    cout << "---------------- Modificar usuario ----------------" << endl;
+    cout << "¿Que datos quiere modificar?" << endl;
+    cout << "•1 Nombre" << endl;
+    cout << "•2 Imagen de perfil" << endl;
+    cout << "•3 Descripcion personal" << endl;
+    ingresarOpcion(opc, 1, 3);
+    switch (opc){
+    case 1:
+        cout << "Ingrese el nuevo nombre: ";
+        cin >> nombre;
+    break;
+    case 2:
+        cout << "Suba la nueva imagen de perfil: ";
+        cin >> url;
+    break;
+    case 3:
+        cout << "Ingrese la nueva descripcion: ";
+        cin >> desc;
+    break;
+    }
+    iabrirapp->modificarUsuario(opc, nombre, url, desc);
 }

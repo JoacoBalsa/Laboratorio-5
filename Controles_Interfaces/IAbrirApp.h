@@ -16,6 +16,7 @@ class IAbrirApp{
         virtual bool sesionActiva() = 0;
         virtual void cerrarSesion(IReloj* ireloj) = 0;
         virtual void cargarUsuarios(IReloj* ireloj) = 0;
+        virtual void modificarUsuario(int opc, string nom, string url, string desc) = 0;
 };
 
 #endif
