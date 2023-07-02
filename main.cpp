@@ -29,7 +29,7 @@ int main(){
                     else
                         cout<<"Debe iniciar sesion antes."<<endl;
                 break;
-                case 4:
+                case 4:             //Caso Archivar Conversacion
                     if(iabrirapp->sesionActiva()){
                         menuArchivarConver();
                     }
@@ -42,7 +42,7 @@ int main(){
                 case 7:
                     mostrarFecha();
                 break;
-                case 8:
+                case 8:             //Caso Agregar Contactos
                     if(iabrirapp->sesionActiva()){
                         menuAgregarContactos();
                     }
@@ -125,8 +125,8 @@ void menuAbrirApp(){
             case 2:
                 menuAbrirApp();
             break;
-            }
-        } 
+        }
+    } 
 }
 
 void menuAltaUsuario(int tel){
@@ -201,7 +201,7 @@ void menuEnviarMensaje(){
     int opc, id, tel;
     cout <<"---------------- Enviar Mensaje ----------------"<< endl;
     icMensaje->listarConver();
-    cout << "------------------------------------------------" << endl;
+    cout << endl;
     cout << "•1 Seleccionar una conversación activa" << endl;
     cout << "•2 Ver las conversaciones archivadas" << endl;
     cout << "•3 Enviar un mensaje a un contacto con el cual aún no ha iniciado una conversación" << endl;
@@ -340,9 +340,8 @@ void menuAgregarContactos(){
         if(op != 2){
             cout << "Ingrese numero: ";
             cin >> tel;
-            if(icAgregarCon->numeroValido(tel)){
+            if(icAgregarCon->numeroValido(tel))
                 icAgregarCon->agregarContacto(tel);
-            }
         }
     }while(op != 2);
 }
@@ -371,10 +370,8 @@ void menuArchivarConver(){
                 icMensaje->archivarConver(id);
             }
        }while(op != 2 && icMensaje->existeConverActiva());
-    }
-    else{
+    }else
         cout << "No hay conversaciones activas" << endl;
-    }
 }
 
 void menuModificarUsuario(){
@@ -387,18 +384,18 @@ void menuModificarUsuario(){
     cout << "•3 Descripcion personal" << endl;
     ingresarOpcion(opc, 1, 3);
     switch (opc){
-    case 1:
-        cout << "Ingrese el nuevo nombre: ";
-        cin >> nombre;
-    break;
-    case 2:
-        cout << "Suba la nueva imagen de perfil: ";
-        cin >> url;
-    break;
-    case 3:
-        cout << "Ingrese la nueva descripcion: ";
-        cin >> desc;
-    break;
+        case 1:
+            cout << "Ingrese el nuevo nombre: ";
+            cin >> nombre;
+        break;
+        case 2:
+            cout << "Suba la nueva imagen de perfil: ";
+            cin >> url;
+        break;
+        case 3:
+            cout << "Ingrese la nueva descripcion: ";
+            cin >> desc;
+        break;
     }
     iabrirapp->modificarUsuario(opc, nombre, url, desc);
 }
