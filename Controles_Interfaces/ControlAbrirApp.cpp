@@ -33,41 +33,29 @@ void ControlAbrirApp::cerrarSesion(IReloj* ireloj){
 }
 
 void ControlAbrirApp::cargarUsuarios(IReloj* ireloj){
-    altaUsuario(1, "Agustin", "url1", "Aduana)", ireloj);
-    altaUsuario(2, "Joaquin", "url2", "En una relacion", ireloj);
-    altaUsuario(3, "Felipe", "url3", "Guitarrista", ireloj);
-    altaUsuario(4, "Lucas", "url4", "Trabajando", ireloj);
-    altaUsuario(5, "Lucia", "url5", "Nutricionista", ireloj);
-    altaUsuario(6, "Nicolas", "url6", "Cartas magic", ireloj);
-    altaUsuario(7, "Carlos", "url7", "Profesor", ireloj);
-    altaUsuario(8, "William", "url8", "Programador", ireloj);
+    altaUsuario(1, "Agustin", "url1", "Estudiante", ireloj);
+    altaUsuario(2, "Joaquin", "url2", "Estudiante", ireloj);
+    altaUsuario(3, "Felipe", "url3", "Estudiante", ireloj);
+    altaUsuario(4, "Nicolas", "url6", "Estudiante", ireloj);
+    altaUsuario(5, "Guillermo", "url8", "Estudiante", ireloj);
     ManejadorUsuario *mU = mU->getInstancia();
     mU->setActual(1);
     mU->setContacto(2);
     mU->setContacto(3);
     mU->setContacto(4);
-    mU->setContacto(5);
-    mU->setContacto(6);
-    mU->setContacto(7);
-    mU->setContacto(8);
     mU->setActual(2);
     mU->setContacto(1);
+    mU->setContacto(3);
     mU->setContacto(4);
     mU->setContacto(5);
-    mU->setContacto(6);
-    mU->setContacto(8);
     mU->setActual(3);
     mU->setContacto(1);
-    mU->setContacto(5);
-    mU->setContacto(6);
-    mU->setContacto(7);
-    mU->setContacto(8);
+    mU->setContacto(2);
     mU->setActual(4);
     mU->setContacto(1);
-    mU->setContacto(2);
+    mU->setContacto(3);
     mU->setContacto(3);
     mU->setContacto(5);
-    mU->setContacto(6);
     mU->cerrarSesion(ireloj);
 }
 
